@@ -1,5 +1,3 @@
-# rust-kr.org
-
 -   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
 -   러스트 저장소: [github.com/mozilla/rust](https://www.github.com/mozilla/rust)
     ([통계](http://ruststat.youknowone.org))
