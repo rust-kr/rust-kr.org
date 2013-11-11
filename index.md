@@ -1,12 +1,6 @@
--   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
--   러스트 저장소: [github.com/mozilla/rust](https://www.github.com/mozilla/rust)
-    ([통계](http://ruststat.youknowone.org))
-    / Servo 저장소: [github.com/mozilla/servo](https://www.github.com/mozilla/servo)
-    ([통계](http://servostat.youknowone.org))
-
-러스트(Rust)는 모질라([mozilla.org](https://www.mozilla.org/))에서 개발하는
+러스트([Rust][])는 모질라([mozilla.org](https://www.mozilla.org/))에서 개발하고 있는,
 메모리-안전하고 병렬 프로그래밍이 쉬운 차세대 프로그래밍 언어입니다.
-소스코드는 공개되어 개발 중이고, 아직 많은 기능이 구현 중인 개발 단계의 언어입니다.
+아직 개발 단계이며 많은 기능이 구현 중으로, MIT/Apache2 라이선스로 배포됩니다.
 
 한국 러스트 사용자 그룹은 러스트를 사용하거나 러스트 개발에 참여하고 있는 사용자 그룹입니다.
 현재는 작은 규모이고 대부분 [IRC](http://ko.wikipedia.org/wiki/IRC)를 이용하고 있습니다.
@@ -18,3 +12,14 @@
 / [XChat, 리눅스](http://xchat.org/download/))를 설치하고
 [irc://irc.ozinger.org/#rust](irc://irc.ozinger.org/#rust)로 접속하셔도 좋습니다.
 찾아오신 것을 환영합니다!
+
+## 관련 링크 모음
+
+-   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
+-   러스트 저장소: [github.com/mozilla/rust](https://www.github.com/mozilla/rust)
+-   Servo 저장소: [github.com/mozilla/servo](https://www.github.com/mozilla/servo)
+-   [러스트 통계](http://ruststat.youknowone.org) /
+    [Servo 통계](http://servostat.youknowone.org)
+
+
+[Rust]: http://rust-lang.org
