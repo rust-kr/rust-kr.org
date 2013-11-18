@@ -13,6 +13,8 @@
 [irc://irc.ozinger.org/#rust](irc://irc.ozinger.org/#rust)로 접속하셔도 좋습니다.
 찾아오신 것을 환영합니다!
 
+-   [설치하기](/pages/install)
+
 ## 관련 링크 모음
 
 -   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
