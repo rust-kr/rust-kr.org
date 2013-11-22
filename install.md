@@ -41,18 +41,16 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
     ```bash
     $ export PATH=$PATH:<경로>
     ```
+    
+    매번 수행하기 귀찮다면 자신의 profile 에 등록해 놓으셔도 됩니다.
+    
+    ~/.profile 또는 ~/.bash_profile 의 내용:
 
-    ex 4-1)
-
-    ```bash
-    $ export PATH=$PATH:/Users/Jeyraof/bin/
+    ```.profile
+    export PATH=$PATH:<경로>
     ```
 
-    ex 4-2)
-
-    ```bash
-    $ export PATH=$PATH:<저장소>/<결과물>/stage2/bin/
-    ```
+    이제 새로운 세션부터는 그냥 rustc, rustpkg, rustdoc 을 사용할 수 있습니다.
 
 6. 추가 정보
 
