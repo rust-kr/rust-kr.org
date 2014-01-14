@@ -28,18 +28,18 @@ Hans Jørgen Hoel이 관리하는 [우분투용 Rust 나이틀리 스냅샷](htt
 > 팁: 여러 개의 `rustc`가 설치되었을 경우 각 릴리스는 `/usr/lib/rust-<버전>/bin/rustc`에 들어가고
 > 마지막으로 설치되거나 업데이트된 버전만 `rustc`에 심볼릭 링크됩니다.
 > 심볼릭 링크를 바꾸려면 우분투의 링크 관리 기능을 사용합니다.
-> 
+>
 >     $ sudo update-alternatives --config rustc
 >     대체 항목 rustc에 대해 (/usr/bin/rustc 제공) 3개 선택이 있습니다.
->     
+>
 >       선택       경로                                우선순  상태
 >     ------------------------------------------------------------
 >     * 0            /usr/lib/rust/rust-nightly/bin/rustc   150       자동 모드
 >       1            /usr/lib/rust/rust-0.8/bin/rustc       80        수동 모드
 >       2            /usr/lib/rust/rust-0.9/bin/rustc       90        수동 모드
 >       3            /usr/lib/rust/rust-nightly/bin/rustc   150       수동 모드
->     
->     기본 사항[*]을 사용하려면 엔터, 다른 것을 사용하려면 번호를 입력하십시오: 
+>
+>     기본 사항[*]을 사용하려면 엔터, 다른 것을 사용하려면 번호를 입력하십시오:
 
 ## 윈도
 
@@ -109,7 +109,7 @@ Chocolatey가 배치 파일을 사용하는데 MSYS 셸이 (현재는) 배치 �
 각 파일에는 다음과 같은 내용을 집어 넣으면 됩니다.
 
     #!/bin/sh
-    cmd //c $(basename "$0") "$@" 
+    cmd //c $(basename "$0") "$@"
 
 이렇게 하면 MSYS에서도 `rustc` 등의 명령을 사용할 수 있습니다.
 

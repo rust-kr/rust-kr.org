@@ -69,21 +69,19 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
 -   `/postinstall/pi.sh`를 실행해주세요.
     몇 가지 세팅이 끝나면 Rust를 빌드할 수 있는 환경이 준비됩니다.
 
-## 나이틀리 스냅샷
+## 나이틀리 스냅샷 / 패키지
 
 컴파일이 어렵거나 시간이 많이 걸린다면 비교적 최근(1~2주 이내)의 버전을 미리 컴파일해 놓은
 나이틀리 스냅샷(nightly snapshot)을 사용하는 것도 한 방법입니다.
-
-[별도 페이지](/pages/install-nightly)에 설치 방법이 정리되어 있습니다.
-
-## 패키지
-
-몇몇 배포판에서는 공식/비공식적인 패키지를 제공합니다.
+몇몇 리눅스 배포판에서는 공식/비공식적인 패키지를 제공하며, 윈도 역시 비공식 패키지가 존재합니다.
 
 -   우분투용 비공식 [나이틀리 패키지][rust-nightly-ubuntu]
 -   아크 리눅스용 비공식 [나이틀리 패키지][rust-nightly-arch]
+-   윈도 비공식 [나이틀리 패키지][rust-nuget]
 
-[러스트 위키 페이지][rust-packages]에도 관련 정보를 찾을 수 있습니다.
+우분투와 윈도에서의 설치 과정이 [별도 페이지](/pages/install-nightly)에 정리되어 있습니다.
+
+[Rust 위키 페이지][rust-packages]도 참고하세요.
 
 (Homebrew의 경우 바이너리가 아니라 소스 빌드이며, 매번 llvm을 새로 빌드할 수 있어
 추천하지 않습니다.)
@@ -95,3 +93,4 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
 [mingw-sf-files]: http://sourceforge.net/projects/mingw/files/
 [rust-packages]: https://github.com/mozilla/rust/wiki/Doc-packages,-editors,-and-other-tools
 [rust-nightly-arch]: http://pkgbuild.com/~thestinger/repo/
+[rust-nuget]: https://www.nuget.org/packages/Rust/
