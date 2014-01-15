@@ -41,6 +41,8 @@ Hans Jørgen Hoel이 관리하는 [우분투용 Rust 나이틀리 스냅샷](htt
 >
 >     기본 사항[*]을 사용하려면 엔터, 다른 것을 사용하려면 번호를 입력하십시오:
 
+> 팁: 데비안에서도 libc 버전이 호환되면 우분투 패키지를 사용할 수 있습니다.
+
 ## 윈도
 
 [MinGW 인스톨러](http://sourceforge.net/projects/mingw/files/latest/download?source=files)를 받아서 실행한 뒤 지시에 따릅니다.
