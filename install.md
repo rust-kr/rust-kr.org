@@ -3,6 +3,37 @@
 Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있습니다.
 따라서 Rust의 현재 상태를 경험하기 위해서는 릴리즈 버전이 아닌 최신 버전 사용을 추천합니다.
 
+## 나이틀리 사용하기
+
+공식 나이틀리 버전이 시험적으로 제공되고 있습니다.
+아래에서 알맞은 바이너리를 받으세요.
+
+-   linux64: http://static.rust-lang.org/dist/rust-nightly-x86_64-unknown-linux-gnu.tar.gz
+-   linux32: http://static.rust-lang.org/dist/rust-nightly-i686-unknown-linux-gnu.tar.gz
+-   win32: http://static.rust-lang.org/dist/rust-nightly-install.exe
+-   mac64: http://static.rust-lang.org/dist/rust-nightly-x86_64-apple-darwin.pkg
+-   mac32: http://static.rust-lang.org/dist/rust-nightly-i686-apple-darwin.pkg
+
+자세한 내용은 [메일링 리스트 글](https://mail.mozilla.org/pipermail/rust-dev/2014-March/009223.html)을
+참고해주세요.
+
+## 비공식 나이틀리 스냅샷 / 패키지
+
+몇몇 리눅스 배포판에서는 공식/비공식적인 패키지를 제공하며,
+윈도의 nuget 패키지 매니저에서도 비공식 패키지가 존재합니다.
+
+-   우분투용 비공식 [나이틀리 패키지][rust-nightly-ubuntu].
+    (데비안에서도 libc 버전이 맞으면 사용가능합니다.)
+-   아크 리눅스용 비공식 [나이틀리 패키지][rust-nightly-arch]
+-   윈도 비공식 [나이틀리 패키지][rust-nuget]
+
+우분투와 윈도에서의 설치 과정이 [별도 페이지](/pages/install-nightly)에 정리되어 있습니다.
+
+[Rust 위키 페이지][rust-packages]도 참고하세요.
+
+(Homebrew의 경우 바이너리가 아니라 소스 빌드이며, 매번 llvm을 새로 빌드할 수 있어
+추천하지 않습니다.)
+
 ## 직접 빌드하기
 
 1. 먼저 [github 저장소][rust-github]에서 소스를 다운 받으세요.
@@ -68,24 +99,6 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
     mingw 디렉토리에서 `msys/1.0/msys.bat`을 실행하면 셸이 뜹니다.
 -   `/postinstall/pi.sh`를 실행해주세요.
     몇 가지 세팅이 끝나면 Rust를 빌드할 수 있는 환경이 준비됩니다.
-
-## 나이틀리 스냅샷 / 패키지
-
-컴파일이 어렵거나 시간이 많이 걸린다면 비교적 최근(1~2주 이내)의 버전을 미리 컴파일해 놓은
-나이틀리 스냅샷(nightly snapshot)을 사용하는 것도 한 방법입니다.
-몇몇 리눅스 배포판에서는 공식/비공식적인 패키지를 제공하며, 윈도 역시 비공식 패키지가 존재합니다.
-
--   우분투용 비공식 [나이틀리 패키지][rust-nightly-ubuntu].
-    (데비안에서도 libc 버전이 맞으면 사용가능합니다.)
--   아크 리눅스용 비공식 [나이틀리 패키지][rust-nightly-arch]
--   윈도 비공식 [나이틀리 패키지][rust-nuget]
-
-우분투와 윈도에서의 설치 과정이 [별도 페이지](/pages/install-nightly)에 정리되어 있습니다.
-
-[Rust 위키 페이지][rust-packages]도 참고하세요.
-
-(Homebrew의 경우 바이너리가 아니라 소스 빌드이며, 매번 llvm을 새로 빌드할 수 있어
-추천하지 않습니다.)
 
 [rust-github]: http://github.com/mozilla/rust
 [rust-nightly-ubuntu]: https://launchpad.net/~hansjorg/+archive/rust
