@@ -17,23 +17,6 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
 자세한 내용은 [메일링 리스트 글](https://mail.mozilla.org/pipermail/rust-dev/2014-March/009223.html)을
 참고해주세요.
 
-## 비공식 나이틀리 스냅샷 / 패키지
-
-몇몇 리눅스 배포판에서는 공식/비공식적인 패키지를 제공하며,
-윈도의 nuget 패키지 매니저에서도 비공식 패키지가 존재합니다.
-
--   우분투용 비공식 [나이틀리 패키지][rust-nightly-ubuntu].
-    (데비안에서도 libc 버전이 맞으면 사용가능합니다.)
--   아크 리눅스용 비공식 [나이틀리 패키지][rust-nightly-arch]
--   윈도 비공식 [나이틀리 패키지][rust-nuget]
-
-우분투와 윈도에서의 설치 과정이 [별도 페이지](/pages/install-nightly)에 정리되어 있습니다.
-
-[Rust 위키 페이지][rust-packages]도 참고하세요.
-
-(Homebrew의 경우 바이너리가 아니라 소스 빌드이며, 매번 llvm을 새로 빌드할 수 있어
-추천하지 않습니다.)
-
 ## 직접 빌드하기
 
 1. 먼저 [github 저장소][rust-github]에서 소스를 다운 받으세요.
@@ -101,10 +84,6 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
     몇 가지 세팅이 끝나면 Rust를 빌드할 수 있는 환경이 준비됩니다.
 
 [rust-github]: http://github.com/mozilla/rust
-[rust-nightly-ubuntu]: https://launchpad.net/~hansjorg/+archive/rust
 [llvm]: http://llvm.org/
 [mingw]: http://mingw.org/
 [mingw-sf-files]: http://sourceforge.net/projects/mingw/files/
-[rust-packages]: https://github.com/mozilla/rust/wiki/Doc-packages,-editors,-and-other-tools
-[rust-nightly-arch]: http://pkgbuild.com/~thestinger/repo/
-[rust-nuget]: https://www.nuget.org/packages/Rust/
