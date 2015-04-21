@@ -18,8 +18,8 @@
 ## 관련 링크 모음
 
 -   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
--   러스트 저장소: [github.com/mozilla/rust](https://www.github.com/mozilla/rust)
--   Servo 저장소: [github.com/mozilla/servo](https://www.github.com/mozilla/servo)
+-   러스트 저장소: [github.com/rust-lang/rust](https://www.github.com/rust-lang/rust)
+-   Servo 저장소: [github.com/servo/servo](https://www.github.com/servo/servo)
 -   [러스트 통계](http://ruststat.youknowone.org) /
     [Servo 통계](http://servostat.youknowone.org)
 
