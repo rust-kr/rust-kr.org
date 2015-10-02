@@ -68,6 +68,21 @@ Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있
 
     이제 새로운 세션부터는 그냥 rustc, rustpkg, rustdoc 을 사용할 수 있습니다.
 
+
+    4.2의 "빌드된 현재의 저장소를 그대로 사용하기" 를 사용하시려면 다음과 같이 하시면 됩니다. (<경로>는 보통 '<소스디렉토리>/x86_64-unknown-linux-gnu' 이런 형식으로 생성됩니다)
+
+    ```bash
+    $ export PATH=$PATH:<경로>/stage2/bin
+    $ export LD_LIBRARY_PATH=$:<경로>/stage2/lib
+    ```
+
+    ~/.profile 또는 ~/.bash_profile 의 내용:
+
+    ```.profile
+    export PATH=$PATH:<경로>/stage2/bin
+    export LD_LIBRARY_PATH=$PATH:<경로>/stage2/lib
+    ```
+
 6. 추가 정보
 
     처음으로 빌드할 때에는 [LLVM][llvm]이 먼저 빌드됩니다. 여기에서 상당한 시간이 소모되는데, 일단 한번 빌드가 되고나면 llvm 자체가 업그레이드 되지 않는 한 **기존 빌드결과물이 계속해서 사용**됩니다. 그러므로 같은 저장소에서 지속적으로 빌드하는것이 좋습니다.
