@@ -17,6 +17,7 @@
 
 ## 관련 링크 모음
 
+-   러스트 문서 한글화 프로젝트: [penflip.com/sarojaba/rust-doc-korean](https://www.penflip.com/sarojaba/rust-doc-korean)
 -   러스트 공식 사이트(영문): [rust-lang.org](http://www.rust-lang.org/)
 -   러스트 저장소: [github.com/rust-lang/rust](https://www.github.com/rust-lang/rust)
 -   Servo 저장소: [github.com/servo/servo](https://www.github.com/servo/servo)
