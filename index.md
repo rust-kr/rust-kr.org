@@ -7,7 +7,8 @@
 아래 대화창을 이용하여 지금 대화에 참가해 보세요!
 궁금한 점을 물어보셔도 좋고 하고 싶은 이야기를 하셔도 좋습니다.
 사생활 보호를 위해 웹 채팅에서는 단순한 대화 기능만 제공되므로,
-채널에 직접 참가하시려면 IRC 클라이언트([hexchat, 윈도](http://hexchat.org/downloads.html)
+채널에 직접 참가하시려면 IRC 클라이언트([IRCCloud](https://irccloud.com/)
+/ [hexchat, 윈도](http://hexchat.org/downloads.html)
 / [XChat Azure, 맥](http://itunes.apple.com/app/id447521961)
 / [XChat, 리눅스](http://xchat.org/download/))를 설치하고
 [irc://irc.ozinger.org/#rust](irc://irc.ozinger.org/#rust)로 접속하셔도 좋습니다.
