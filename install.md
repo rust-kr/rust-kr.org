@@ -1,23 +1,15 @@
 # Rust 설치하기
 
-Rust는 현재 언어와 표준 라이브러리가 계속하여 발전하고 있습니다.
-따라서 Rust의 현재 상태를 경험하기 위해서는 릴리즈 버전이 아닌 최신 버전 사용을 추천합니다.
+## 입문자용
 
-## 나이틀리 사용하기
+[Rust 공식 홈페이지](https://www.rust-lang.org/)에서 설치 파일을 내려받아 설치합니다.
+또는, [rustup][]을 사용하시면 Rust 컴파일러를 쉽게 설치하고 업그레이드할 수 있습니다.
 
-공식 나이틀리 버전이 시험적으로 제공되고 있습니다.
-아래에서 알맞은 바이너리를 받으세요.
+[rustup]: https://www.rustup.rs/
 
--   linux64: http://static.rust-lang.org/dist/rust-nightly-x86_64-unknown-linux-gnu.tar.gz
--   linux32: http://static.rust-lang.org/dist/rust-nightly-i686-unknown-linux-gnu.tar.gz
--   win32: http://static.rust-lang.org/dist/rust-nightly-install.exe
--   mac64: http://static.rust-lang.org/dist/rust-nightly-x86_64-apple-darwin.pkg
--   mac32: http://static.rust-lang.org/dist/rust-nightly-i686-apple-darwin.pkg
+## 전문가용: 직접 빌드하기
 
-자세한 내용은 [메일링 리스트 글](https://mail.mozilla.org/pipermail/rust-dev/2014-March/009223.html)을
-참고해주세요.
-
-## 직접 빌드하기
+Rust 컴파일러를 직접 개선하고 싶으신 분들께 권장드립니다.
 
 1. 먼저 [github 저장소][rust-github]에서 소스를 다운 받으세요.
 
