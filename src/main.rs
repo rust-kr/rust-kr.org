@@ -54,22 +54,24 @@ fn main() {
 
 /// Root page handler
 fn index(_: &mut Request) -> IronResult<Response> {
-    let mut data = BTreeMap::new();
-    data.insert("content", "Hello, world!");
-
-    Ok(Response::with((status::Ok, Template::new("default", data))))
+    read_docs("Home")
 }
 
 /// Wiki page handler
 fn page(req: &mut Request) -> IronResult<Response> {
-    use std::fs::File;
-    use std::io::Read;
     use router::Router;
-    use cmark::Parser;
-    use cmark::html::push_html;
 
     // Parse URL
     let name = req.extensions.get::<Router>().unwrap().find("name").unwrap_or("Home");
+    read_docs(name)
+}
+
+/// `name`을 인자로 받아, `docs/<name>.md` 파일을 렌더링하여 `IronResult<Response>`로 반환합니다.
+fn read_docs(name: &str) -> IronResult<Response> {
+    use std::fs::File;
+    use std::io::Read;
+    use cmark::Parser;
+    use cmark::html::push_html;
 
     // Read file
     let path = format!("docs/{}.md", name);
