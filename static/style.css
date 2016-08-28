@@ -1,3 +1,30 @@
-h1 {
-  text-align: center;
+/* Customize bootstrap container width */
+@media (min-width: 1200px) {
+  .container { max-width: 900px; }
+}
+
+/* Custom CSS Rules */
+#header {
+  display: flex;
+  align-items: center;
+}
+#header #text { line-height: 0.8; }
+#header small { font-size: 50%; }
+#header #logo {
+  height: 100px;
+  margin-right: 20px;
+}
+
+article {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+footer #naverd2 {
+  height: 1em;
+  margin-bottom: 3px;
 }
