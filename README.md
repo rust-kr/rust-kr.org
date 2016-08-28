@@ -1,10 +1,11 @@
-Iron Practice
+[rust-kr] 소스코드
 ========
 
+### 사용법
 ```bash
 git clone https://github.com/rust-kr/rust-kr-rust.wiki.git docs
 cargo run
-# Go to http://localhost:3000
+# 웹 브라우저에서 http://localhost:8000 를 열어보세요
 ```
 
-[![](http://orig03.deviantart.net/44bc/f/2015/070/d/4/alphonse_elric_sticker_by_helixel-d8lbfvo.png)](http://fmabrotherhood.deviantart.com/art/Alphonse-Elric-Sticker-519535140)
+[rust-kr]: http://rust-kr.org

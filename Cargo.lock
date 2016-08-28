@@ -1,5 +1,5 @@
 [root]
-name = "iron-practice"
+name = "rust-kr"
 version = "0.1.0"
 dependencies = [
  "handlebars-iron 0.18.0 (registry+https://github.com/rust-lang/crates.io-index)",
