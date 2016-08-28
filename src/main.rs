@@ -12,23 +12,21 @@ use mount::Mount;
 use staticfile::Static;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
 
+//
+// Configs
+//
+/// 서버가 소켓을 열 주소
+const ADDR: &'static str = "localhost:8000";
+/// 마크다운 문서가 담긴 주소
+const DOCS_DIR: &'static str = "docs";
+
 /// Entry point
 fn main() {
-    //
-    // Configs
-    //
-    let addr = "localhost:8000";
-
-    // Routes & Mounts
     let mut chain = Chain::new(router! {
         get "/" => index,
         get "/pages/:name" => page,
+        get "/pages/_pages" => all_docs,
     });
-
-    //
-    // 이 뒤는 더럽습니다
-    // Reference: https://namu.wiki/w/%EC%96%B4%EC%9D%B4%20%EA%B7%B8%20%EC%95%9E%EC%9D%80%20%EC%A7%80%EC%98%A5%EC%9D%B4%EB%8B%A4
-    //
 
     // Compile templates
     let mut hbse = HandlebarsEngine::new();
@@ -48,8 +46,8 @@ fn main() {
         .mount("/static/", Static::new("static/"));
 
     // Fire & Forget
-    println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", addr);
-    Iron::new(mount).http(addr).unwrap();
+    println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
+    Iron::new(mount).http(ADDR).unwrap();
 }
 
 /// Root page handler
@@ -66,6 +64,36 @@ fn page(req: &mut Request) -> IronResult<Response> {
     read_docs(name)
 }
 
+/// "All documents" page handler
+fn all_docs(_: &mut Request) -> IronResult<Response> {
+    use std::fs::read_dir;
+
+    let paths: Vec<_> = itry!(read_dir(DOCS_DIR))
+        .filter_map(|f| f.ok())
+        .map(|f| f.path())
+        .filter(|p| p.is_file())
+        .filter(|p| p.as_os_str().to_str()
+            .map(|s| s.ends_with(".md"))
+            .unwrap_or(false))
+        .collect();
+    let pages = paths.iter()
+        .filter_map(|p| p.file_stem())
+        .filter_map(|stem| stem.to_str());
+
+    // TODO: 러스트로 이짓하지 말고 Handlebar로 대체
+    let mut html = "<ul>".to_string();
+    for page in pages {
+        use std::fmt::Write;
+        write!(&mut html, r#"<li><a href="/pages/{0}">{0}</a></li>"#, page).unwrap();
+    }
+    html.push_str("</ul>");
+
+    // Fill in to the template
+    let mut data = BTreeMap::new();
+    data.insert("content", html);
+    Ok(Response::with((status::Ok, Template::new("default", data))))
+}
+
 /// `name`을 인자로 받아, `docs/<name>.md` 파일을 렌더링하여 `IronResult<Response>`로 반환합니다.
 fn read_docs(name: &str) -> IronResult<Response> {
     use std::fs::File;
@@ -74,7 +102,7 @@ fn read_docs(name: &str) -> IronResult<Response> {
     use cmark::html::push_html;
 
     // Read file
-    let path = format!("docs/{}.md", name);
+    let path = format!("{}/{}.md", DOCS_DIR, name);
     let mut file = itry!(File::open(&path));
     let mut md = String::new();
     itry!(file.read_to_string(&mut md));
