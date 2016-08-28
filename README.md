@@ -2,6 +2,7 @@ Iron Practice
 ========
 
 ```bash
+git clone https://github.com/rust-kr/rust-kr-rust.wiki.git docs
 cargo run
 # Go to http://localhost:3000
 ```
