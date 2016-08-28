@@ -15,7 +15,7 @@ fn main() {
     //
     // Configs
     //
-    let addr = "localhost:3000";
+    let addr = "localhost:8000";
 
     // Routes & Mounts
     let mut chain = Chain::new(router! {
