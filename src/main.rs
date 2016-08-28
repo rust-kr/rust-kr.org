@@ -4,6 +4,7 @@ extern crate mount;
 extern crate staticfile;
 extern crate handlebars_iron as hbs;
 
+use std::collections::BTreeMap;
 use iron::prelude::*;
 use iron::status;
 use mount::Mount;
@@ -51,7 +52,10 @@ fn main() {
 
 /// `/` Handler
 fn index(_: &mut Request) -> IronResult<Response> {
+    let mut data = BTreeMap::new();
+    data.insert("content", "Hello, world!");
+
     let mut resp = Response::new();
-    resp.set_mut(Template::new("index", ())).set_mut(status::Ok);
+    resp.set_mut(Template::new("index", data)).set_mut(status::Ok);
     Ok(resp)
 }
