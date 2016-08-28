@@ -5,3 +5,5 @@ authors = ["Hyeon Kim <simnalamburt@gmail.com>"]
 
 [dependencies]
 iron = "0.4"
+router = "0.2"
+handlebars-iron = "0.18"
