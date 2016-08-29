@@ -1,0 +1,10 @@
+[Unit]
+Description=한국 러스트 사용자 그룹 홈페이지
+
+[Service]
+User=simnalamburt
+WorkingDirectory=/home/simnalamburt/services/rust-kr.org
+ExecStart=/usr/bin/cargo run --release
+
+[Install]
+WantedBy=multi-user.target
