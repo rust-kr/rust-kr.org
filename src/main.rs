@@ -68,7 +68,7 @@ fn page(req: &mut Request) -> IronResult<Response> {
 fn all_docs(_: &mut Request) -> IronResult<Response> {
     use std::fs::read_dir;
 
-    let paths: Vec<_> = itry!(read_dir(DOCS_DIR))
+    let mut paths: Vec<_> = itry!(read_dir(DOCS_DIR))
         .filter_map(|f| f.ok())
         .map(|f| f.path())
         .filter(|p| p.is_file())
@@ -76,6 +76,8 @@ fn all_docs(_: &mut Request) -> IronResult<Response> {
             .map(|s| s.ends_with(".md"))
             .unwrap_or(false))
         .collect();
+    paths.sort();
+
     let pages = paths.iter()
         .filter_map(|p| p.file_stem())
         .filter_map(|stem| stem.to_str());
