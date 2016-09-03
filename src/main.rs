@@ -1,5 +1,5 @@
-#[macro_use] extern crate iron;
-#[macro_use] extern crate router;
+#[macro_use(itry)] extern crate iron;
+#[macro_use(router)] extern crate router;
 extern crate mount;
 extern crate staticfile;
 extern crate handlebars_iron as hbs;
