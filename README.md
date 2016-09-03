@@ -3,7 +3,7 @@
 
 ### 사용법
 ```bash
-git clone https://github.com/rust-kr/rust-kr-rust.wiki.git docs
+git clone https://github.com/rust-kr/rust-kr.org.wiki.git docs
 cargo run
 # 웹 브라우저에서 http://localhost:8000 를 열어보세요
 ```
