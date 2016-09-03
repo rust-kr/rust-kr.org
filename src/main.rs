@@ -22,32 +22,38 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
-    let mut chain = Chain::new(router! {
-        get "/" => index,
-        get "/pages/:name" => page,
-        get "/pages/_pages" => all_docs,
+    // Declarative definition of request handling
+    let app = Iron::new({
+        let mut c = Chain::new({
+            // '/static/*'          -> static file serving
+            // '/'                  -> Main page
+            // '/pages/:name'       -> Specific documents
+            // '/pages/_pages'      -> See all documents
+
+            let mut m = Mount::new();
+            m.mount("/static/", Static::new("static/"));
+            m.mount("/", router! {
+                get "/" => index,
+                get "/pages/:name" => page,
+                get "/pages/_pages" => all_docs,
+            });
+            m
+        });
+        c.link_after({
+            // Handlebar templating
+            let mut hbr = HandlebarsEngine::new();
+            hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
+            if let Err(r) = hbr.reload() {
+                use std::error::Error;
+                panic!("{}", r.description());
+            }
+            hbr
+        });
+        c
     });
 
-    // Compile templates
-    let mut hbse = HandlebarsEngine::new();
-    hbse.add(Box::new(DirectorySource::new("templates", ".hbs")));
-    // load templates from all registered sources
-    if let Err(r) = hbse.reload() {
-        use std::error::Error;
-        panic!("{}", r.description());
-    }
-    // Register handlebar middleware
-    chain.link_after(hbse);
-
-    // Mount '/static/' path to the filesystem
-    let mut mount = Mount::new();
-    mount
-        .mount("/", chain)
-        .mount("/static/", Static::new("static/"));
-
-    // Fire & Forget
     println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
-    Iron::new(mount).http(ADDR).unwrap();
+    app.http(ADDR).unwrap();
 }
 
 /// Root page handler
