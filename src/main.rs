@@ -8,6 +8,7 @@ extern crate pulldown_cmark as cmark;
 use std::collections::BTreeMap;
 use iron::prelude::*;
 use iron::status;
+use iron::middleware::AfterMiddleware;
 use mount::Mount;
 use staticfile::Static;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
@@ -48,6 +49,25 @@ fn main() {
                 panic!("{}", r.description());
             }
             hbr
+        });
+        c.link_after({
+            // 404 page handler
+            struct Sink;
+            impl AfterMiddleware for Sink {
+                fn catch(&self, _: &mut Request, err: IronError) -> IronResult<Response> {
+                    if err.response.body.is_some() { return Err(err); }
+                    if err.response.status != Some(status::NotFound) { return Err(err); }
+
+                    Err(IronError {
+                        response: Response {
+                            body: Some(Box::new("Not found")),
+                            .. err.response
+                        },
+                        .. err
+                    })
+                }
+            }
+            Sink { }
         });
         c
     });
