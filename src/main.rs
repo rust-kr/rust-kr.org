@@ -52,7 +52,20 @@ fn main() {
             });
             m
         });
+        // 404 page handler
+        c.link_after(catch(|mut err: IronError| {
+            if err.response.body.is_some() { return Err(err); }
+            if err.response.status != Some(status::NotFound) { return Err(err); }
 
+            // TODO: 좀더 내용 채우기
+            let mut data = BTreeMap::new();
+            data.insert("content", r#"
+                <h1>404</h1>
+                <p>This is not the web page you are looking for.</p>
+            "#);
+            err.response.set_mut(Template::new("default", data));
+            Err(err)
+        }));
         // Handlebar templating
         c.link_after({
             let mut hbr = HandlebarsEngine::new();
@@ -63,14 +76,6 @@ fn main() {
             }
             hbr
         });
-        // 404 page handler
-        c.link_after(catch(|err: IronError| {
-            if err.response.body.is_some() { return Err(err); }
-            if err.response.status != Some(status::NotFound) { return Err(err); }
-
-            // TODO
-            Err(IronError { response: err.response.set("Not found"), ..err })
-        }));
         c
     });
 
