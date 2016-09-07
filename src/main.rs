@@ -101,7 +101,7 @@ fn page(req: &mut Request) -> IronResult<Response> {
 fn all_docs(_: &mut Request) -> IronResult<Response> {
     use std::fs::read_dir;
 
-    let mut paths: Vec<_> = itry!(read_dir(DOCS_DIR))
+    let mut paths: Vec<_> = itry!(read_dir(DOCS_DIR), status::NotFound)
         .filter_map(|f| f.ok())
         .map(|f| f.path())
         .filter(|p| p.is_file())
@@ -138,9 +138,9 @@ fn read_docs(name: &str) -> IronResult<Response> {
 
     // Read file
     let path = format!("{}/{}.md", DOCS_DIR, name);
-    let mut file = itry!(File::open(&path));
+    let mut file = itry!(File::open(&path), status::NotFound);
     let mut md = String::new();
-    itry!(file.read_to_string(&mut md));
+    itry!(file.read_to_string(&mut md), status::ServiceUnavailable);
 
     // Parse markdown
     let parser = Parser::new(&md);
