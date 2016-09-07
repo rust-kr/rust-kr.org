@@ -52,8 +52,9 @@ fn main() {
             });
             m
         });
+
+        // Handlebar templating
         c.link_after({
-            // Handlebar templating
             let mut hbr = HandlebarsEngine::new();
             hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
             if let Err(r) = hbr.reload() {
@@ -62,25 +63,14 @@ fn main() {
             }
             hbr
         });
-        c.link_after({
-            // 404 page handler
-            struct Sink;
-            impl AfterMiddleware for Sink {
-                fn catch(&self, _: &mut Request, err: IronError) -> IronResult<Response> {
-                    if err.response.body.is_some() { return Err(err); }
-                    if err.response.status != Some(status::NotFound) { return Err(err); }
+        // 404 page handler
+        c.link_after(catch(|err: IronError| {
+            if err.response.body.is_some() { return Err(err); }
+            if err.response.status != Some(status::NotFound) { return Err(err); }
 
-                    Err(IronError {
-                        response: Response {
-                            body: Some(Box::new("Not found")),
-                            .. err.response
-                        },
-                        .. err
-                    })
-                }
-            }
-            Sink { }
-        });
+            // TODO
+            Err(IronError { response: err.response.set("Not found"), ..err })
+        }));
         c
     });
 
@@ -156,4 +146,15 @@ fn read_docs(name: &str) -> IronResult<Response> {
     let mut data = BTreeMap::new();
     data.insert("content", html);
     Ok(Response::with((status::Ok, Template::new("default", data))))
+}
+
+/// Helper struct for handle 404 page of rust-kr
+struct RustkrHandler<F> { handler: F }
+/// Helper function for handle 404 page of rust-kr
+fn catch<F>(handler: F) -> RustkrHandler<F> { RustkrHandler { handler: handler } }
+impl<F> AfterMiddleware for RustkrHandler<F>
+    where F: Send + Sync + 'static + Fn(IronError) -> IronResult<Response> {
+    fn catch(&self, _: &mut Request, err: IronError) -> IronResult<Response> {
+        (self.handler)(err)
+    }
 }
