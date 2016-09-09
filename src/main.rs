@@ -1,5 +1,17 @@
-#[macro_use] extern crate iron;
-#[macro_use] extern crate router;
+//! [한국 러스트 사용자 그룹 홈페이지][rust-kr] 소스코드
+//! --------
+//!
+//! ### 사용법
+//! ```bash
+//! git clone https://github.com/rust-kr/rust-kr.org.wiki.git docs
+//! cargo run
+//! # 웹 브라우저에서 http://localhost:8000 를 열어보세요
+//! ```
+//!
+//! [rust-kr]: http://rust-kr.org
+
+#[macro_use(itry)] extern crate iron;
+#[macro_use(router)] extern crate router;
 extern crate mount;
 extern crate staticfile;
 extern crate handlebars_iron as hbs;
@@ -8,6 +20,7 @@ extern crate pulldown_cmark as cmark;
 use std::collections::BTreeMap;
 use iron::prelude::*;
 use iron::status;
+use iron::middleware::AfterMiddleware;
 use mount::Mount;
 use staticfile::Static;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
@@ -22,32 +35,52 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
-    let mut chain = Chain::new(router! {
-        get "/" => index,
-        get "/pages/:name" => page,
-        get "/pages/_pages" => all_docs,
+    // Declarative definition of request handling
+    let app = Iron::new({
+        let mut c = Chain::new({
+            // '/static/*'          -> static file serving
+            // '/'                  -> Main page
+            // '/pages/:name'       -> Specific documents
+            // '/pages/_pages'      -> See all documents
+
+            let mut m = Mount::new();
+            m.mount("/static/", Static::new("static/"));
+            m.mount("/", router! {
+                get "/" => index,
+                get "/pages/:name" => page,
+                get "/pages/_pages" => all_docs,
+            });
+            m
+        });
+        // 404 page handler
+        c.link_after(catch(|mut err: IronError| {
+            if err.response.body.is_some() { return Err(err); }
+            if err.response.status != Some(status::NotFound) { return Err(err); }
+
+            // TODO: 좀더 내용 채우기
+            let mut data = BTreeMap::new();
+            data.insert("content", r#"
+                <h1>404</h1>
+                <p>This is not the web page you are looking for.</p>
+            "#);
+            err.response.set_mut(Template::new("default", data));
+            Err(err)
+        }));
+        // Handlebar templating
+        c.link_after({
+            let mut hbr = HandlebarsEngine::new();
+            hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
+            if let Err(r) = hbr.reload() {
+                use std::error::Error;
+                panic!("{}", r.description());
+            }
+            hbr
+        });
+        c
     });
 
-    // Compile templates
-    let mut hbse = HandlebarsEngine::new();
-    hbse.add(Box::new(DirectorySource::new("templates", ".hbs")));
-    // load templates from all registered sources
-    if let Err(r) = hbse.reload() {
-        use std::error::Error;
-        panic!("{}", r.description());
-    }
-    // Register handlebar middleware
-    chain.link_after(hbse);
-
-    // Mount '/static/' path to the filesystem
-    let mut mount = Mount::new();
-    mount
-        .mount("/", chain)
-        .mount("/static/", Static::new("static/"));
-
-    // Fire & Forget
     println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
-    Iron::new(mount).http(ADDR).unwrap();
+    app.http(ADDR).unwrap();
 }
 
 /// Root page handler
@@ -68,7 +101,7 @@ fn page(req: &mut Request) -> IronResult<Response> {
 fn all_docs(_: &mut Request) -> IronResult<Response> {
     use std::fs::read_dir;
 
-    let mut paths: Vec<_> = itry!(read_dir(DOCS_DIR))
+    let mut paths: Vec<_> = itry!(read_dir(DOCS_DIR), status::NotFound)
         .filter_map(|f| f.ok())
         .map(|f| f.path())
         .filter(|p| p.is_file())
@@ -105,9 +138,9 @@ fn read_docs(name: &str) -> IronResult<Response> {
 
     // Read file
     let path = format!("{}/{}.md", DOCS_DIR, name);
-    let mut file = itry!(File::open(&path));
+    let mut file = itry!(File::open(&path), status::NotFound);
     let mut md = String::new();
-    itry!(file.read_to_string(&mut md));
+    itry!(file.read_to_string(&mut md), status::ServiceUnavailable);
 
     // Parse markdown
     let parser = Parser::new(&md);
@@ -118,4 +151,15 @@ fn read_docs(name: &str) -> IronResult<Response> {
     let mut data = BTreeMap::new();
     data.insert("content", html);
     Ok(Response::with((status::Ok, Template::new("default", data))))
+}
+
+/// Helper struct for handle 404 page of rust-kr
+struct RustkrHandler<F> { handler: F }
+/// Helper function for handle 404 page of rust-kr
+fn catch<F>(handler: F) -> RustkrHandler<F> { RustkrHandler { handler: handler } }
+impl<F> AfterMiddleware for RustkrHandler<F>
+    where F: Send + Sync + 'static + Fn(IronError) -> IronResult<Response> {
+    fn catch(&self, _: &mut Request, err: IronError) -> IronResult<Response> {
+        (self.handler)(err)
+    }
 }
