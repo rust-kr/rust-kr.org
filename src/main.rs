@@ -60,7 +60,7 @@ fn main() {
             // '/pages/_pages'      -> See all documents
 
             let mut m = Mount::new();
-            m.mount("/static/", Static::new("static/"));
+            m.mount("/static/", Static::new("public/static/"));
             m.mount("/", router! {
                 get "/" => index,
                 get "/pages/:name" => page,
