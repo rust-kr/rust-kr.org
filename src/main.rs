@@ -28,7 +28,6 @@
 
 #[macro_use(itry)] extern crate iron;
 #[macro_use(router)] extern crate router;
-extern crate mount;
 extern crate staticfile;
 extern crate handlebars_iron as hbs;
 extern crate pulldown_cmark as cmark;
@@ -36,8 +35,7 @@ extern crate pulldown_cmark as cmark;
 use std::collections::BTreeMap;
 use iron::prelude::*;
 use iron::status;
-use iron::middleware::AfterMiddleware;
-use mount::Mount;
+use iron::middleware::{Handler, AfterMiddleware};
 use staticfile::Static;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
 
@@ -51,22 +49,24 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
-    // Declarative definition of request handling
-    let app = Iron::new({
-        let mut c = Chain::new({
-            // '/static/*'          -> static file serving
-            // '/'                  -> Main page
-            // '/pages/:name'       -> Specific documents
-            // '/pages/_pages'      -> See all documents
+    //
+    // Request가 하나 들어오면, 먼저 '/public' 디렉토리를 탐색하여 해당 파일이 있는지 여부를
+    // 찾는다. 해당 파일이 있을경우, 그 파일을 전송하고, 없을경우 아래에 정의된 라우터로 넘어간다.
+    //
 
-            let mut m = Mount::new();
-            m.mount("/static/", Static::new("public/static/"));
-            m.mount("/", router! {
-                get "/" => index,
-                get "/pages/:name" => page,
-                get "/pages/_pages" => all_docs,
-            });
-            m
+    let app = Iron::new({
+        let mut c = Chain::new(router! {
+            get "/" => index,
+            get "/pages/:name" => page,
+            get "/pages/_pages" => all_docs,
+        });
+
+        // Static file serving
+        c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+            Box::new(move |req: &mut Request| -> IronResult<Response> {
+                Static::new("public/").handle(req)
+                    .or_else(|_| main.handle(req))
+            })
         });
         // 404 page handler
         c.link_after(catch(|mut err: IronError| {
