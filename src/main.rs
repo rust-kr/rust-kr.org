@@ -63,49 +63,46 @@ fn main() {
     //     handlebar templating
     //
 
-    let app = Iron::new({
-        let mut c = Chain::new(router! {
-            get "/" => index,
-            get "/pages/:name" => page,
-            get "/pages/_pages" => all_docs,
-        });
+    let mut c = Chain::new(router! {
+        get "/" => index,
+        get "/pages/:name" => page,
+        get "/pages/_pages" => all_docs,
+    });
 
-        // Static file serving
-        c.link_around(move |main: Box<Handler>| -> Box<Handler> {
-            Box::new(move |req: &mut Request| -> IronResult<Response> {
-                Static::new("public/").handle(req)
-                    .or_else(|_| main.handle(req))
-            })
-        });
-        // 404 page handler
-        c.link_after(catch(|mut err: IronError| {
-            if err.response.body.is_some() { return Err(err); }
-            if err.response.status != Some(status::NotFound) { return Err(err); }
+    // Static file serving
+    c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+        Box::new(move |req: &mut Request| -> IronResult<Response> {
+            Static::new("public/").handle(req)
+                .or_else(|_| main.handle(req))
+        })
+    });
+    // 404 page handler
+    c.link_after(catch(|mut err: IronError| {
+        if err.response.body.is_some() { return Err(err); }
+        if err.response.status != Some(status::NotFound) { return Err(err); }
 
-            // TODO: 좀더 내용 채우기
-            let mut data = BTreeMap::new();
-            data.insert("content", r#"
-                <h1>404</h1>
-                <p>This is not the web page you are looking for.</p>
-            "#);
-            err.response.set_mut(Template::new("default", data));
-            Err(err)
-        }));
-        // Handlebar templating
-        c.link_after({
-            let mut hbr = HandlebarsEngine::new();
-            hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
-            if let Err(r) = hbr.reload() {
-                use std::error::Error;
-                panic!("{}", r.description());
-            }
-            hbr
-        });
-        c
+        // TODO: 좀더 내용 채우기
+        let mut data = BTreeMap::new();
+        data.insert("content", r#"
+            <h1>404</h1>
+            <p>This is not the web page you are looking for.</p>
+        "#);
+        err.response.set_mut(Template::new("default", data));
+        Err(err)
+    }));
+    // Handlebar templating
+    c.link_after({
+        let mut hbr = HandlebarsEngine::new();
+        hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
+        if let Err(r) = hbr.reload() {
+            use std::error::Error;
+            panic!("{}", r.description());
+        }
+        hbr
     });
 
     println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
-    app.http(ADDR).unwrap();
+    Iron::new(c).http(ADDR).unwrap();
 }
 
 /// Root page handler
