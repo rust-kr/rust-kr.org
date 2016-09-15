@@ -54,7 +54,8 @@ fn main() {
     //               ⇩
     //                                '/public' 디렉토리에서 해당 파일이 있는지 먼저 찾아본다.
     //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 main handler로
-    //                                넘어간다
+    //    (not in production mode)    넘어간다. production mode로 실행될 경우, 이 동작이 없어지므로
+    //                                nginx나 apache의 정적파일서빙 기능을 써야한다.
     //               ⇩
     //        "main handlers"         index, page, all_docs 등의 함수로 요청을 처리한다
     //               ⇩
@@ -69,13 +70,15 @@ fn main() {
         get "/pages/_pages" => all_docs,
     });
 
-    // Static file serving
-    c.link_around(move |main: Box<Handler>| -> Box<Handler> {
-        Box::new(move |req: &mut Request| -> IronResult<Response> {
-            Static::new("public/").handle(req)
-                .or_else(|_| main.handle(req))
-        })
-    });
+    // Static file serving (not in production mode)
+    if !is_production() {
+        c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+            Box::new(move |req: &mut Request| -> IronResult<Response> {
+                Static::new("public/").handle(req)
+                    .or_else(|_| main.handle(req))
+            })
+        });
+    }
     // 404 page handler
     c.link_after(catch(|mut err: IronError| {
         if err.response.body.is_some() { return Err(err); }
@@ -173,6 +176,15 @@ fn read_docs(name: &str) -> IronResult<Response> {
     let mut data = BTreeMap::new();
     data.insert("content", html);
     Ok(Response::with((status::Ok, Template::new("default", data))))
+}
+
+/// `RUST_KR` 환경변수가 `"production"`일경우 true, 그 외의경우 false를 반환한다.
+fn is_production() -> bool {
+    use std::env;
+
+    env::var("RUST_KR")
+        .map(|s| s == "production")
+        .unwrap_or(false)
 }
 
 /// Helper struct for handle 404 page of rust-kr
