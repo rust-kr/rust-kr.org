@@ -50,8 +50,17 @@ const DOCS_DIR: &'static str = "docs";
 /// Entry point
 fn main() {
     //
-    // Request가 하나 들어오면, 먼저 '/public' 디렉토리를 탐색하여 해당 파일이 있는지 여부를
-    // 찾는다. 해당 파일이 있을경우, 그 파일을 전송하고, 없을경우 아래에 정의된 라우터로 넘어간다.
+    //      User sends request
+    //               ⇩
+    //                                '/public' 디렉토리에서 해당 파일이 있는지 먼저 찾아본다.
+    //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 main handler로
+    //                                넘어간다
+    //               ⇩
+    //        "main handlers"         index, page, all_docs 등의 함수로 요청을 처리한다
+    //               ⇩
+    //       404 page handler         위의 두개가 모두 실패하였을경우 404페이지를 렌더링한다
+    //               ⇩
+    //     handlebar templating
     //
 
     let app = Iron::new({
