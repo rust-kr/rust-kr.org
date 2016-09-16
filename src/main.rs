@@ -33,6 +33,7 @@ extern crate handlebars_iron as hbs;
 extern crate pulldown_cmark as cmark;
 
 use std::collections::BTreeMap;
+use std::fmt;
 use iron::prelude::*;
 use iron::status;
 use iron::middleware::{Handler, AfterMiddleware};
@@ -49,12 +50,14 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
+    let mode = get_mode();
+
     //
     //      User sends request
     //               ⇩
     //                                '/public' 디렉토리에서 해당 파일이 있는지 먼저 찾아본다.
     //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 main handler로
-    //    (not in production mode)    넘어간다. production mode로 실행될 경우, 이 동작이 없어지므로
+    //   (only in development mode)   넘어간다. production mode로 실행될 경우, 이 동작이 없어지므로
     //                                nginx나 apache의 정적파일서빙 기능을 써야한다.
     //               ⇩
     //        "main handlers"         index, page, all_docs 등의 함수로 요청을 처리한다
@@ -70,8 +73,8 @@ fn main() {
         get "/pages/_pages" => all_docs,
     });
 
-    // Static file serving (not in production mode)
-    if !is_production() {
+    // Static file serving (only in development mode)
+    if mode == Mode::Development {
         c.link_around(move |main: Box<Handler>| -> Box<Handler> {
             Box::new(move |req: &mut Request| -> IronResult<Response> {
                 Static::new("public/").handle(req)
@@ -104,7 +107,7 @@ fn main() {
         hbr
     });
 
-    println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
+    println!("\nServer running at \x1b[32mhttp://{}\x1b[0m in \x1b[33m{}\x1b[0m mode\n", ADDR, mode);
     Iron::new(c).http(ADDR).unwrap();
 }
 
@@ -178,13 +181,29 @@ fn read_docs(name: &str) -> IronResult<Response> {
     Ok(Response::with((status::Ok, Template::new("default", data))))
 }
 
-/// `RUST_KR` 환경변수가 `"production"`일경우 true, 그 외의경우 false를 반환한다.
-fn is_production() -> bool {
+/// 현재 프로그램이 개발모드로 실행되는지, 실서비스 모드로 실행되는지 여부를 저장하는 타입.
+///
+/// `get_mode()` 함수로 값을 얻어올 수 있다.
+#[derive(PartialEq)]
+enum Mode { Production, Development }
+
+impl fmt::Display for Mode {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        f.write_str(match *self {
+            Mode::Production => "production",
+            Mode::Development => "development",
+        })
+    }
+}
+
+/// `RUST_KR` 환경변수가 `"production"`일경우 Mode::Production, 그 외의경우 Mode::Development를 반환한다.
+fn get_mode() -> Mode {
     use std::env;
+    use Mode::*;
 
     env::var("RUST_KR")
-        .map(|s| s == "production")
-        .unwrap_or(false)
+        .map(|s| if s == "production" { Production } else { Development })
+        .unwrap_or(Development)
 }
 
 /// Helper struct for handle 404 page of rust-kr
