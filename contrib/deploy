@@ -27,8 +27,12 @@ sudo mkdir -p "$TARGET_DIR" || {
   exit 1
 }
 
+# 서비스 종료
+echo -e "3.  \e[33mrust-kr\e[0m 서비스 종료"
+sudo systemctl stop rust-kr
+
 # 파일 복사
-echo "3.  파일 복사"
+echo "4.  파일 복사"
 sudo cp "target/release/rust-kr" "$TARGET_DIR" &&
 sudo cp -r "docs/" "$TARGET_DIR" &&
 sudo cp -r "public/" "$TARGET_DIR" &&
@@ -36,5 +40,9 @@ sudo cp -r "templates/" "$TARGET_DIR" || {
   echo -e "\n파일 복사도중 에러가 발생했습니다. 디플로이 \e[31m실패\e[0m"
   exit 1
 }
+
+# 서비스 재시작
+echo -e "5.  \e[33mrust-kr\e[0m 서비스 재시작"
+sudo systemctl start rust-kr
 
 echo -e "\n디플로이 \e[32m성공!\e[0m"
