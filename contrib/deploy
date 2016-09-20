@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# 디플로이할 경로
+TARGET_DIR='/var/opt/rust-kr.org/'
+# 스크립트가 들어있는 경로
+__dir__="$( dirname "${BASH_SOURCE[0]}" )"
+
+
+#
+# Main logic
+#
+
+# 프로젝트의 루트 디렉토리로 이동
+cd "$__dir__/.."
+
+# 빌드
+echo "1.  최신 빌드 생성"
+cargo build --release || {
+  echo -e "\n빌드 도중 에러가 발생했습니다. 디플로이 \e[31m실패\e[0m"
+  exit 1
+}
+
+# TARGET_DIR 디렉토리 생성
+echo -e "2.  \e[33m$TARGET_DIR\e[0m 디렉토리 생성"
+sudo mkdir -p "$TARGET_DIR" || {
+  echo -e "\n\e[33m$TARGET_DIR\e[0m 디렉토리 생성에 실패하였습니다. 디플로이 \e[31m실패\e[0m"
+  exit 1
+}
+
+# 파일 복사
+echo "3.  파일 복사"
+sudo cp "target/release/rust-kr" "$TARGET_DIR" &&
+sudo cp -r "docs/" "$TARGET_DIR" &&
+sudo cp -r "public/" "$TARGET_DIR" &&
+sudo cp -r "templates/" "$TARGET_DIR" || {
+  echo -e "\n파일 복사도중 에러가 발생했습니다. 디플로이 \e[31m실패\e[0m"
+  exit 1
+}
+
+echo -e "\n디플로이 \e[32m성공!\e[0m"

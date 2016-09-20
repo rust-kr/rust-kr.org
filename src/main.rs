@@ -28,16 +28,15 @@
 
 #[macro_use(itry)] extern crate iron;
 #[macro_use(router)] extern crate router;
-extern crate mount;
 extern crate staticfile;
 extern crate handlebars_iron as hbs;
 extern crate pulldown_cmark as cmark;
 
 use std::collections::BTreeMap;
+use std::fmt;
 use iron::prelude::*;
 use iron::status;
-use iron::middleware::AfterMiddleware;
-use mount::Mount;
+use iron::middleware::{Handler, AfterMiddleware};
 use staticfile::Static;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
 
@@ -51,52 +50,65 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
-    // Declarative definition of request handling
-    let app = Iron::new({
-        let mut c = Chain::new({
-            // '/static/*'          -> static file serving
-            // '/'                  -> Main page
-            // '/pages/:name'       -> Specific documents
-            // '/pages/_pages'      -> See all documents
+    let mode = get_mode();
 
-            let mut m = Mount::new();
-            m.mount("/static/", Static::new("static/"));
-            m.mount("/", router! {
-                get "/" => index,
-                get "/pages/:name" => page,
-                get "/pages/_pages" => all_docs,
-            });
-            m
-        });
-        // 404 page handler
-        c.link_after(catch(|mut err: IronError| {
-            if err.response.body.is_some() { return Err(err); }
-            if err.response.status != Some(status::NotFound) { return Err(err); }
+    //
+    //      User sends request
+    //               ⇩
+    //                                '/public' 디렉토리에서 해당 파일이 있는지 먼저 찾아본다.
+    //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 main handler로
+    //   (only in development mode)   넘어간다. production mode로 실행될 경우, 이 동작이 없어지므로
+    //                                nginx나 apache의 정적파일서빙 기능을 써야한다.
+    //               ⇩
+    //        "main handlers"         index, page, all_docs 등의 함수로 요청을 처리한다
+    //               ⇩
+    //       404 page handler         위의 두개가 모두 실패하였을경우 404페이지를 렌더링한다
+    //               ⇩
+    //     handlebar templating
+    //
 
-            // TODO: 좀더 내용 채우기
-            let mut data = BTreeMap::new();
-            data.insert("content", r#"
-                <h1>404</h1>
-                <p>This is not the web page you are looking for.</p>
-            "#);
-            err.response.set_mut(Template::new("default", data));
-            Err(err)
-        }));
-        // Handlebar templating
-        c.link_after({
-            let mut hbr = HandlebarsEngine::new();
-            hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
-            if let Err(r) = hbr.reload() {
-                use std::error::Error;
-                panic!("{}", r.description());
-            }
-            hbr
-        });
-        c
+    let mut c = Chain::new(router! {
+        get "/" => index,
+        get "/pages/:name" => page,
+        get "/pages/_pages" => all_docs,
     });
 
-    println!("\nServer running at \x1b[33mhttp://{}\x1b[0m\n", ADDR);
-    app.http(ADDR).unwrap();
+    // Static file serving (only in development mode)
+    if mode == Mode::Development {
+        c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+            Box::new(move |req: &mut Request| -> IronResult<Response> {
+                Static::new("public/").handle(req)
+                    .or_else(|_| main.handle(req))
+            })
+        });
+    }
+    // 404 page handler
+    c.link_after(catch(|mut err: IronError| {
+        if err.response.body.is_some() { return Err(err); }
+        if err.response.status != Some(status::NotFound) { return Err(err); }
+
+        // TODO: 좀더 내용 채우기
+        let mut data = BTreeMap::new();
+        data.insert("content", r#"
+            <h1>404</h1>
+            <p>This is not the web page you are looking for.</p>
+        "#);
+        err.response.set_mut(Template::new("default", data));
+        Err(err)
+    }));
+    // Handlebar templating
+    c.link_after({
+        let mut hbr = HandlebarsEngine::new();
+        hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
+        if let Err(r) = hbr.reload() {
+            use std::error::Error;
+            panic!("{}", r.description());
+        }
+        hbr
+    });
+
+    println!("\nServer running at \x1b[32mhttp://{}\x1b[0m in \x1b[33m{}\x1b[0m mode\n", ADDR, mode);
+    Iron::new(c).http(ADDR).unwrap();
 }
 
 /// Root page handler
@@ -167,6 +179,31 @@ fn read_docs(name: &str) -> IronResult<Response> {
     let mut data = BTreeMap::new();
     data.insert("content", html);
     Ok(Response::with((status::Ok, Template::new("default", data))))
+}
+
+/// 현재 프로그램이 개발모드로 실행되는지, 실서비스 모드로 실행되는지 여부를 저장하는 타입.
+///
+/// `get_mode()` 함수로 값을 얻어올 수 있다.
+#[derive(PartialEq)]
+enum Mode { Production, Development }
+
+impl fmt::Display for Mode {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        f.write_str(match *self {
+            Mode::Production => "production",
+            Mode::Development => "development",
+        })
+    }
+}
+
+/// `RUST_KR` 환경변수가 `"production"`일경우 Mode::Production, 그 외의경우 Mode::Development를 반환한다.
+fn get_mode() -> Mode {
+    use std::env;
+    use Mode::*;
+
+    env::var("RUST_KR")
+        .map(|s| if s == "production" { Production } else { Development })
+        .unwrap_or(Development)
 }
 
 /// Helper struct for handle 404 page of rust-kr

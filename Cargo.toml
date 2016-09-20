@@ -5,7 +5,6 @@ authors = ["Hyeon Kim <simnalamburt@gmail.com>"]
 
 [dependencies]
 iron = "0.4"
-mount = "0.2"
 router = "0.2"
 staticfile = "0.3"
 handlebars-iron = { version = "0.18", features = ["serde_type"] }
