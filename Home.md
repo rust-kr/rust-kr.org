@@ -15,9 +15,9 @@
 </h4>
 
 궁금한 점을 물어보셔도 좋고 하고 싶은 이야기를 하셔도 좋습니다. 위의 링크가 아닌
-IRC 클라이언트<small>([IRCCloud], 윈도 [hexchat] 윈도, OS X [XChat Azure], Linux
-[XChat])</small>를 설치하고 <irc://irc.ozinger.org/#rust>로 접속하셔도 좋습니다.
-찾아오신 것을 환영합니다!
+IRC 클라이언트<small>([IRCCloud], [hexchat], [XChat Azure], [XChat])</small>를
+설치하고 <irc://irc.ozinger.org/#rust>로 접속하셔도 좋습니다. 찾아오신 것을
+환영합니다!
 
 - [설치하기](/pages/install)
 - [입문하기](https://doc.rust-lang.org/book) (영문)
