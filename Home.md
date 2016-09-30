@@ -1,16 +1,18 @@
 <div class="alert alert-info" role="alert">
-  <a href="/pages/meetup-2016-10-01"><b>10월 1일 토요일</b> 코딩모임이 있습니다! 참여하세요!</a>
+  10월 1일 (토) 코딩모임이 있습니다. <a href="/pages/meetup-2016-10-01" class="alert-link">참여하세요!</a>
 </div>
 
 [러스트]는 [모질라]에서 개발하고 있는, 쉽고 안전하게 병렬 프로그래밍을 할 수
-있는 차세대 프로그래밍 언어입니다. 2016년 9월 3일 최신 버전은 1.11이며,
-MIT/Apache2 라이선스로 배포됩니다.
+있는 차세대 프로그래밍 언어입니다. 최신 버전은 1.12이며, MIT/Apache2 라이선스로
+배포됩니다.
 
 한국 러스트 사용자 그룹은 러스트를 사용하거나 러스트 개발에 참여하고 있는 사용자
 그룹입니다. 현재는 작은 규모이고 대부분 [IRC]를 이용하고 있습니다. 아래 링크를
 이용하여 지금 대화에 참가해 보세요!
 
-<h4 align=center><a href="http://webchat.ozinger.org/#rust">http://webchat.ozinger.org/#rust</a></h4>
+<h4 style="margin: 20px 0; text-align: center;">
+  <a href="http://webchat.ozinger.org/#rust">http://webchat.ozinger.org/#rust</a>
+</h4>
 
 궁금한 점을 물어보셔도 좋고 하고 싶은 이야기를 하셔도 좋습니다. 위의 링크가 아닌
 IRC 클라이언트<small>([IRCCloud], 윈도 [hexchat] 윈도, OS X [XChat Azure], Linux
