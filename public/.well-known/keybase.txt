@@ -1,0 +1,76 @@
+==================================================================
+https://keybase.io/simnalamburt
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rust-kr.org
+  * I am simnalamburt (https://keybase.io/simnalamburt) on keybase.
+  * I have a public key with fingerprint 13E1 2F01 AD9C 017A A999  A7FE 0F85 F46E E242 057F
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "012095b652457b29fc519b81f7552e160cd3362c73d65dac3a88fa553c4d7841eb4c0a",
+            "fingerprint": "13e12f01ad9c017aa999a7fe0f85f46ee242057f",
+            "host": "keybase.io",
+            "key_id": "0f85f46ee242057f",
+            "kid": "0101c57655baa65996e272b22b6ecc4cc2db08ddf1b4438f60be58f5a5e74cac8ce90a",
+            "uid": "35407fadfb7567ba46a416803ba98c19",
+            "username": "simnalamburt"
+        },
+        "service": {
+            "hostname": "rust-kr.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1482034961,
+    "expire_in": 157680000,
+    "prev": "494f95135c2bc0cbbd444d786fb4acd7aef752aabab2dc688f2da10e9d48fa6c",
+    "seqno": 65,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.61
+Comment: https://keybase.io/crypto
+
+yMNzAnicZVJpTFRXGIUqYGkVpWyhpNCXKLUCect920SNpS7RYEioA8iS8b777htf
+Z2VmGEqnw5JU08QMYdPSajQWNZI0kdA2NBUqi0pkiwQ1trTgsLglWtkNJtA3VH/1
+/rm59zvn3PN9515fvyYoPDji2Jx1PD2kPLiv83RxUG52xCYPIdnkUkLnIUx4dcNm
+GTtdBpMqEzqCpGhSZCWOpQHLS7SoIJYSJYFSeJalMcWRSGYYjkY8I3OsDBEDBUGB
+LMsgIPMCoLAEEAmJFEJRrUbssDtUq0uTpRhM0QpJQVlEJMVDKIoi5BVMKgKrAA5j
+GtAkyysa8ajNGWBo5iToxGmqTbvTDob/7P0f/8Y3SSGW51hWgpBjRZHDNE9LNC1x
+GCGAEC1LpCDLCiUBwAgKR0qYFRQWspgHCCIBYXHVd/GqHMMCklegrEg8y/ESBBwE
+FCeQjARFAVFiAOjEDiu0YA3tVC1WaIYWqdjhIrwphFZxqwgHhhvo5jXKUex0pZoc
+aTaHUaPbHTaXDdnMWuGoy2V36gJEV6k9gCzBkuG1hkFSrbI2So3hxg6narMSOkpD
+IpcaEKWAQJMMEDkqhcBf2FUHNqgBhDYJgdRW4B3s1iSBCBSRpRgW0RIikSTJAAQS
+4xQJQCTzEGsJ0xBKUKJlxGmh0jKkSCzKQMuXQ0SgqyKrjdBxrOYTGlfbNlqhq9iB
+CW9XZ8HaoODwoNCQtwJ/LCj87Y1vft57tyJWCmM3T85G5+Y2vPDGb69PTTGOPeq5
+1pm1BYzVpT5fBr7CoT93z+RnzIPbsVOxFUs9m/4oWHunw1J/WG/76e+HVz1ZT5IK
+F/UrG2aJ6g6rcqLo+dZnOe9PXEtraViqnDaxJ0a6p0ta858eKDH4S2xi2XjaELNv
+umny197HnZXTlX41ZDnB8aBxwbTL0PHw6dLOqzu+Hpj88H7ttm/CLu73/z43648O
+OT8a+s6BiW+3xqQmLnS3X+n3+YyoZrR2/HbQhQfNXV+SAzn6hIzSy2fSe3Oi/tnI
+yPEdSlbf5oWZyGfnD1umTh+xDmTGDNUVWA6W/ebJStRnXCo+d5L+ODulOv24PX5o
+AkylhXpPbtnz1eVG8Yem0fzS3lst+yrmW+PbcibCk3csZwJ48OWrp2fM5et6dSac
+HxKn5zhQPhx26H70TW9td/DwtHfs3pp7x+vWnbXE2dsflcx0D7Zvq0+cv6lW+D85
+1TfSlPrpkcXtRXxDVIP5ycDyzryVHnf6Ln/Cjcffy0muY+FZjZ451TS5/yzlG/mg
++tB0XFJZW0HU3Zi/Wu6+m+e+nmf7zNP8S80pe8a4J+xSclncqO9VQ1hk13frI6ta
+y0nXnf6Le+IqfN0ru6vQhcXo5PTstqqff7xxJTP33Gze5y9TjHyBz7+y98VH1tph
+vTk72q3rGgwZ3DBr7hdrmv8F7IPLyg==
+=WtHh
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/simnalamburt
+
+==================================================================
+
