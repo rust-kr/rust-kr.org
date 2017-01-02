@@ -1,5 +1,5 @@
 <div class="alert alert-info" role="alert">
-  10월 1일 (토) 코딩모임이 있습니다. <a href="/pages/meetup-2016-10-01" class="alert-link">참여하세요!</a>
+  1월 7일 (토) 코딩모임이 있습니다. <a href="/pages/meetup-2017-01-07" class="alert-link">참여하세요!</a>
 </div>
 
 [러스트]는 [모질라]에서 개발하고 있는, 쉽고 안전하게 병렬 프로그래밍을 할 수
