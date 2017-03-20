@@ -1,58 +1,99 @@
-# Rust 설치하기
+Rust 설치하기
+========
+[Rust 공식 설치 가이드]는 **[rustup]**을 사용한 설치를 권장합니다.
 
-## 입문자용
+[rustup]을 쓰면 윈도우, 맥, 리눅스 등의 환경에서 손쉽게 러스트를 설치할 수 있습니다. 리눅스와 맥의 경우 셸에서 아래의 커맨드 한줄만 입력하면 Rust 컴파일러와 패키지매니저가 한번에 설치됩니다.
+```shell
+curl https://sh.rustup.rs -sSf | sh -s -- --help
+```
+윈도우의 경우에도 [rustup‑init.exe] 파일을 받아서 실행하기만 하면 시스템에 Rust가 설치됩니다.
 
-[Rust 공식 홈페이지](https://www.rust-lang.org/)에서 설치 파일을 내려받아 설치합니다.
-또는, [rustup][]을 사용하시면 Rust 컴파일러를 쉽게 설치하고 업그레이드할 수 있습니다.
+[rustup]을 쓰기 싫은경우, 각 시스템에 기본으로 탑재되어있는 패키지매니저를 사용하여 설치해도 됩니다. 그러나 이와 같은 방식으로 설치할경우, **상당히 늦은 버전의 Rust가 설치되므로 주의하세요**.
 
-[rustup]: https://www.rustup.rs/
+```shell
+# Ubuntu, Debian
+apt install rustc cargo
+# Fedora
+dnf install rust
 
-## 전문가용: 직접 빌드하기
+# macOS에서 Homebrew를 쓰는 경우
+brew install rust
+# macOS에서 Mac Ports를 쓰는 경우
+port install rust
 
-Rust 컴파일러를 직접 개선하고 싶으신 분들께 권장드립니다.
+# 윈도우즈에서 Chocolatey를 쓰는 경우
+choco install rust     # GNU ABI
+choco install rust-ms  # MSVC ABI
 
-1. 먼저 [github 저장소][rust-github]에서 소스를 다운 받으세요.
+# OpenSUSE
+zypper in rust
+# Gentoo Linux
+emerge dev-lang/rust
+# Arch Linux, Manjaro Linux, msys2
+pacman -S rust
+# Alpine Linux
+apk add rust
+
+# FreeBSD
+pkg install lang/rust
+# OpenBSD
+pkg_add rust
+```
+
+[Rust 공식 설치 가이드]: https://www.rust-lang.org/ko-KR/install.html
+[rustup]: https://rustup.rs
+[rustup‑init.exe]: https://win.rustup.rs/
+
+<br>
+
+### Rust 직접 빌드하기
+대부분의 경우 Rust를 직접 빌드해서 쓸 필요가 없습니다. 하지만 Rust 컴파일러를 직접 개선하고 싶으시면, 개발환경에서 Rust를 빌드하셔야합니다.
+
+1.  개발환경에 아래의 디펜던시들이 모두 있는지 먼저 체크합니다.
+
+    * `g++` 4.7 or later or `clang++` 3.x
+    * `python` 2.7 (but not 3.x)
+    * GNU `make` 3.81 or later
+    * `cmake` 3.4.3 or later
+    * `curl`
+    * `git`
+
+1.  [Github 저장소]에서 소스를 다운 받으세요.
 
     ```bash
-    $ git clone https://github.com/mozilla/rust.git
+    git clone https://github.com/rust-lang/rust.git
+    cd rust/
     ```
 
-2. 해당 디렉토리로 이동해 `./configure` 를 수행하세요.
+1.  해당 디렉토리로 이동해 아래와 같이 빌드를 수행해주세요.
 
     ```bash
-    $ cd rust/
-    $ ./configure
+    ./x.py build
     ```
 
-3. `./configure` 가 문제 없이 실행되었다면 `make` 를 수행하여 빌드하세요.
+1.  빌드가 끝났다면 두가지의 선택지가 있습니다.
 
-    ```bash
-    $ make
-    ```
+    1.  **추천!** 빌드된 현재의 저장소를 그대로 사용하기.
 
-4. 빌드가 끝났다면 두가지의 선택지가 있습니다.
+        이 경우는 rust 가 저장소 밖을 벗어나지 않아 다른곳을 더럽히지 않는다는 장점이 있습니다. Build 가 완료되면 생성되는 디렉토리속의 'stage2/bin/' 를 그냥 사용하시면 됩니다.
 
-    1. `make install DESTDIR=<경로>` 를 이용해 특정한 경로에 rust 를 설치하기.
+    1.  `make install DESTDIR=<경로>` 를 이용해 특정한 경로에 rust 를 설치하기.
 
         이 경우에는 원하는 장소에 rust 를 설치하여 사용할 수 있습니다.
 
         ```bash
-        $ make install DESTDIR="/Users/Jeyraof/bin/"
+        make install DESTDIR="/Users/Jeyraof/bin/"
         ```
 
-    2. 빌드된 현재의 저장소를 그대로 사용하기. <추천>
-
-        이 경우는 rust 가 저장소 밖을 벗어나지 않아 다른곳을 더럽히지 않는다는 장점이 있습니다. Build 가 완료되면 생성되는 디렉토리속의 'stage2/bin/' 를 그냥 사용하시면 됩니다.
-
-5. 위에서 결정한 바이너리의 디렉토리를 PATH 에 등록해 줍니다.
+1.  위에서 결정한 바이너리의 디렉토리를 PATH 에 등록해 줍니다.
 
     ```bash
-    $ export PATH=$PATH:<경로>
+    export PATH=$PATH:<경로>
     ```
 
     매번 수행하기 귀찮다면 자신의 profile 에 등록해 놓으셔도 됩니다.
 
-    ~/.profile 또는 ~/.bash_profile 의 내용:
+    `~/.profile` 또는 `~/.bash_profile` 의 내용:
 
     ```.profile
     export PATH=$PATH:<경로>
@@ -64,8 +105,8 @@ Rust 컴파일러를 직접 개선하고 싶으신 분들께 권장드립니다.
     4.2의 "빌드된 현재의 저장소를 그대로 사용하기" 를 사용하시려면 다음과 같이 하시면 됩니다. (<경로>는 보통 '<소스디렉토리>/x86_64-unknown-linux-gnu' 이런 형식으로 생성됩니다)
 
     ```bash
-    $ export PATH=$PATH:<경로>/stage2/bin
-    $ export LD_LIBRARY_PATH=$:<경로>/stage2/lib
+    export PATH=$PATH:<경로>/stage2/bin
+    export LD_LIBRARY_PATH=$:<경로>/stage2/lib
     ```
 
     ~/.profile 또는 ~/.bash_profile 의 내용:
@@ -75,11 +116,11 @@ Rust 컴파일러를 직접 개선하고 싶으신 분들께 권장드립니다.
     export LD_LIBRARY_PATH=$PATH:<경로>/stage2/lib
     ```
 
-6. 추가 정보
+1.  추가 정보
 
     처음으로 빌드할 때에는 [LLVM][llvm]이 먼저 빌드됩니다. 여기에서 상당한 시간이 소모되는데, 일단 한번 빌드가 되고나면 llvm 자체가 업그레이드 되지 않는 한 **기존 빌드결과물이 계속해서 사용**됩니다. 그러므로 같은 저장소에서 지속적으로 빌드하는것이 좋습니다.
 
-### 윈도
+### Windows에서 러스트 빌드하기
 
 윈도에서 Rust를 빌드하려면 먼저 [mingw][]를 준비해야 합니다.
 
@@ -90,7 +131,7 @@ Rust 컴파일러를 직접 개선하고 싶으신 분들께 권장드립니다.
 -   `/postinstall/pi.sh`를 실행해주세요.
     몇 가지 세팅이 끝나면 Rust를 빌드할 수 있는 환경이 준비됩니다.
 
-[rust-github]: http://github.com/mozilla/rust
+[Github 저장소]: https://github.com/rust-lang/rust
 [llvm]: http://llvm.org/
 [mingw]: http://mingw.org/
 [mingw-sf-files]: http://sourceforge.net/projects/mingw/files/
