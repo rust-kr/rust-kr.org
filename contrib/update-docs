@@ -2,9 +2,11 @@
 # 개발환경에 있는 문서 업데이트
 cd "$( dirname "${BASH_SOURCE[0]}" )/../docs"
 git remote set-url origin https://github.com/rust-kr/rust-kr.org.wiki.git
+git remote set-url --push origin git@github.com:rust-kr/rust-kr.org.wiki.git
 git pull --rebase
 
 # 디플로이 경로에 있는 문서 업데이트
 cd /var/opt/rust-kr.org/docs/
 sudo git remote set-url origin https://github.com/rust-kr/rust-kr.org.wiki.git
-sudo git pull --rebase
+sudo git fetch --all
+sudo git checkout origin/master
