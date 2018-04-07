@@ -1,12 +1,14 @@
 <!--
-NOTE: 코딩모임이 끝나면, 아래 코드를 주석처리 해주세요.
+NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리세요
 -->
 
+<!--
 <div class="alert alert-info" role="alert">
   1월 27일 (토) 코딩모임이 있습니다.
   <a href="/pages/meetup-2018-01-27" class="btn btn-success"
     style="margin-left: 10px; vertical-align: baseline;">참여하세요!</a>
 </div>
+-->
 
 [러스트]는 [모질라]에서 개발하고 있는, 쉽고 안전하게 병렬 프로그래밍을 할 수
 있는 차세대 프로그래밍 언어입니다. 최신 버전은 1.24.1이며, MIT/Apache2 라이선스로
