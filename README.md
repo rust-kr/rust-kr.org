@@ -1,20 +1,21 @@
-[한국 러스트 사용자 그룹 홈페이지][rust-kr] 소스코드
+[rust-kr.org]
 --------
+한국 러스트 사용자 그룹 홈페이지의 소스코드 입니다.
 
-### 사용법
 ```bash
-git clone https://github.com/rust-kr/rust-kr.org.wiki.git docs --depth=1
 cargo run
-# 웹 브라우저에서 http://localhost:8000 를 열어보세요
-```
 
-###### Production usage
-```bash
+# For production:
 RUST_KR=production cargo run --release
 ```
 
+<br>
+
 --------
 
-[AGPLv3](LICENSE)
+*rust-kr.org* is primarily distributed under the terms of the [GNU Affero General
+Public License v3.0] or any later version. See [COPYRIGHT] for details.
 
-[rust-kr]: http://rust-kr.org
+[rust-kr.org]: https://rust-kr.org
+[GNU Affero General Public License v3.0]: LICENSE
+[COPYRIGHT]: COPYRIGHT
