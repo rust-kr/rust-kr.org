@@ -69,9 +69,9 @@ fn main() {
     //
 
     let mut c = Chain::new(router! {
-        get "/" => index,
-        get "/pages/:name" => page,
-        get "/pages/_pages" => all_docs,
+        index: get "/" => index,
+        page: get "/pages/:name" => page,
+        all_docs: get "/pages/_pages" => all_docs,
     });
 
     // Static file serving
