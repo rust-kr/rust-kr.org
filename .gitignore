@@ -1,5 +1,2 @@
 # Ignore build results
 /target/
-
-# Ignore documents
-/docs/
