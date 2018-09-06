@@ -44,7 +44,7 @@ use hbs::{Template, HandlebarsEngine, DirectorySource};
 // Configs
 //
 /// 서버가 소켓을 열 주소
-const ADDR: &'static str = "localhost:8000";
+const ADDR: &'static str = "[::]:8000";
 /// 마크다운 문서가 담긴 주소
 const DOCS_DIR: &'static str = "docs";
 
