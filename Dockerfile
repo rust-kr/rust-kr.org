@@ -12,18 +12,18 @@ RUN cargo build --release
 #
 FROM debian:stretch-slim
 
-# Copy resources
-WORKDIR /src/rust-kr.org
-COPY docs docs
-COPY public public
-COPY templates templates
-
-# Healthcheck
+# Install the binary
+COPY --from=0 /a/target/release/rust-kr /usr/local/bin
+# Enable healthcheck
 RUN apt-get update -y && apt-get install -y curl
 HEALTHCHECK --interval=5m --timeout=3s \
   CMD curl -f http://localhost:8000 || exit 1
 
-# Install the binary
-COPY --from=0 /a/target/release/rust-kr /usr/local/bin
+# Copy resources
+WORKDIR /src/rust-kr.org
+COPY templates templates
+COPY public public
+COPY docs docs
+
 EXPOSE 8000
 CMD ["rust-kr"]
