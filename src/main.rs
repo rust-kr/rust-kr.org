@@ -1,17 +1,22 @@
-//! [한국 러스트 사용자 그룹 홈페이지][rust-kr] 소스코드
-//! --------
+//! [rust-kr.org] [![Docker Badge]][Docker Hub]
+//! ========
+//! 한국 러스트 사용자 그룹 홈페이지의 소스코드 입니다.
 //!
-//! ### 사용법
 //! ```bash
-//! git clone https://github.com/rust-kr/rust-kr.org.wiki.git docs
-//! cargo run
-//! # 웹 브라우저에서 http://localhost:8000 를 열어보세요
+//! docker run --detach \
+//!   --name rust-kr.org \
+//!   --restart always \
+//!   --publish 8000:8000 \
+//!   simnalamburt/rust-kr.org
+//!   snu.jokbo.me
 //! ```
 //!
-//! [rust-kr]: http://rust-kr.org
+//! [rust-kr.org]: https://rust-kr.org
+//! [Docker Badge]: https://badgen.net/docker/pulls/simnalamburt/rust-kr.org?icon=docker&label=pulls
+//! [Docker Hub]: https://hub.docker.com/r/simnalamburt/rust-kr.org/
 
-// 한국 러스트 사용자 그룹 홈페이지
-// Copyright (C) 2016  Hyeon Kim
+// rust-kr.org
+// Copyright (C) 2016-2018  Hyeon Kim
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published
@@ -33,7 +38,6 @@ extern crate handlebars_iron as hbs;
 extern crate pulldown_cmark as cmark;
 
 use std::collections::BTreeMap;
-use std::fmt;
 use iron::prelude::*;
 use iron::status;
 use iron::middleware::{Handler, AfterMiddleware};
@@ -50,15 +54,12 @@ const DOCS_DIR: &'static str = "docs";
 
 /// Entry point
 fn main() {
-    let mode = get_mode();
-
     //
     //      User sends request
     //               ⇩
     //                                '/public' 디렉토리에서 해당 파일이 있는지 먼저 찾아본다.
-    //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 main handler로
-    //   (only in development mode)   넘어간다. production mode로 실행될 경우, 이 동작이 없어지므로
-    //                                nginx나 apache의 정적파일서빙 기능을 써야한다.
+    //    try static file serving     있을경우 이를 전송하고, 없을경우 아래의 404 page handler로
+    //                                넘어간다.
     //               ⇩
     //        "main handlers"         index, page, all_docs 등의 함수로 요청을 처리한다
     //               ⇩
@@ -73,15 +74,13 @@ fn main() {
         get "/pages/_pages" => all_docs,
     });
 
-    // Static file serving (only in development mode)
-    if mode == Mode::Development {
-        c.link_around(move |main: Box<Handler>| -> Box<Handler> {
-            Box::new(move |req: &mut Request| -> IronResult<Response> {
-                Static::new("public/").handle(req)
-                    .or_else(|_| main.handle(req))
-            })
-        });
-    }
+    // Static file serving
+    c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+        Box::new(move |req: &mut Request| -> IronResult<Response> {
+            Static::new("public/").handle(req)
+                .or_else(|_| main.handle(req))
+        })
+    });
     // 404 page handler
     c.link_after(catch(|mut err: IronError| {
         if err.response.body.is_some() { return Err(err); }
@@ -107,7 +106,7 @@ fn main() {
         hbr
     });
 
-    println!("\nServer running at \x1b[32mhttp://{}\x1b[0m in \x1b[33m{}\x1b[0m mode\n", ADDR, mode);
+    println!("\nServer running at \x1b[32mhttp://{}\x1b[0m\n", ADDR);
     Iron::new(c).http(ADDR).unwrap();
 }
 
@@ -179,31 +178,6 @@ fn read_docs(name: &str) -> IronResult<Response> {
     let mut data = BTreeMap::new();
     data.insert("content", html);
     Ok(Response::with((status::Ok, Template::new("default", data))))
-}
-
-/// 현재 프로그램이 개발모드로 실행되는지, 실서비스 모드로 실행되는지 여부를 저장하는 타입.
-///
-/// `get_mode()` 함수로 값을 얻어올 수 있다.
-#[derive(PartialEq)]
-enum Mode { Production, Development }
-
-impl fmt::Display for Mode {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        f.write_str(match *self {
-            Mode::Production => "production",
-            Mode::Development => "development",
-        })
-    }
-}
-
-/// `RUST_KR` 환경변수가 `"production"`일경우 Mode::Production, 그 외의경우 Mode::Development를 반환한다.
-fn get_mode() -> Mode {
-    use std::env;
-    use Mode::*;
-
-    env::var("RUST_KR")
-        .map(|s| if s == "production" { Production } else { Development })
-        .unwrap_or(Development)
 }
 
 /// Helper struct for handle 404 page of rust-kr

@@ -26,5 +26,4 @@ HEALTHCHECK --interval=5m --timeout=3s \
 # Install the binary
 COPY --from=0 /a/target/release/rust-kr /usr/local/bin
 EXPOSE 8000
-ENV RUST_KR=production
 CMD ["rust-kr"]
