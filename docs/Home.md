@@ -48,10 +48,10 @@ iframe {
   width: 250px;
   height: 350px;
   border: none;
-  margin-left: -60px;
+  margin-left: -39px;
 
   transform-origin: top right;
-  transform: scale(0.7);
+  transform: scale(0.8);
 }
 
 .custom-tooltip {
