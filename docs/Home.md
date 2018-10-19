@@ -28,15 +28,18 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 - [설치하기](/pages/install)
 - [입문하기](https://doc.rust-lang.org/stable/book/2018-edition/index.html) (영문)
 
-<br>
+&nbsp;
 
-#### 관련 링크 모음
-- **러스트 공식 사이트: [rust-lang.org](http://www.rust-lang.org/)**
-- 러스트 문서 한글화 프로젝트: [penflip.com/sarojaba/rust-doc-korean](https://www.penflip.com/sarojaba/rust-doc-korean)
-- 러스트 저장소: [github.com/rust-lang/rust](https://www.github.com/rust-lang/rust)
-- Servo 저장소: [github.com/servo/servo](https://www.github.com/servo/servo)
-- [러스트 통계](http://ruststat.youknowone.org) / [Servo 통계](http://servostat.youknowone.org)
+##### 관련 링크 모음
+- **[러스트 공식 사이트]**
+- [러스트 소스코드], [Servo 소스코드]
+- [러스트 통계], [Servo 통계]
 
+[러스트 공식 사이트]: http://www.rust-lang.org
+[러스트 소스코드]: https://www.github.com/rust-lang/rust
+[Servo 소스코드]: https://www.github.com/servo/servo
+[러스트 통계]: http://ruststat.youknowone.org
+[Servo 통계]: http://servostat.youknowone.org
 [러스트]: https://www.rust-lang.org
 [모질라]: https://www.mozilla.org
 [디스코드]: https://discord.gg/uqXGjEz
@@ -68,7 +71,7 @@ iframe {
   left: 50%;
 
   color: #eee;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   text-decoration: underline;
   text-align: center;
 

@@ -1,39 +1,34 @@
-/* Customize bootstrap container width */
-@media (min-width: 1200px) {
-  .container { max-width: 900px; }
+body {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-/* Custom CSS Rules */
 #header {
   display: flex;
   align-items: center;
 }
 #header #text { line-height: 0.8; }
-#header small { font-size: 50%; }
+#header small { font-size: 0.5em; }
 #header #logo {
   height: 100px;
   margin-right: 20px;
 }
 
-article {
-  font-size: 1.1em;
-  line-height: 1.5;
-}
-
 footer {
   display: flex;
   justify-content: space-between;
-
-  margin-bottom: 30px;
 }
 
-/* GitHub Corner */
-.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+@media (min-width: 576px) {
+  /* Show only on big screen */
+  .if-mobile { display: none }
+}
 
 /* Mobile support */
-@media (max-width: 550px) {
-  /* Hide github corner on small screen */
-  .github-corner { display: none }
+@media (max-width: 575.98px) {
+  /* Show only on small screen */
+  .unless-mobile { display: none }
 
   #header #text {
     font-size: 0.75em;
@@ -46,3 +41,8 @@ footer {
     font-size: 0.8em;
   }
 }
+
+/* GitHub Corner */
+.github-corner > svg { fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0; }
+.github-corner .octo-arm { transform-origin: 130px 106px; }
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
