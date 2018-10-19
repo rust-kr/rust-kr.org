@@ -20,6 +20,52 @@ footer {
   justify-content: space-between;
 }
 
+/* Discord widget */
+iframe {
+  border: none;
+}
+iframe.unless-mobile {
+  float: right;
+  width: 250px;
+  height: 350px;
+  margin-left: -39px;
+
+  transform-origin: top right;
+  transform: scale(0.8);
+}
+iframe.if-mobile {
+  margin: -35px auto;
+  height: 280px;
+  transform: scale(0.8);
+}
+
+/* Homebrewed CSS-only tooltip */
+.custom-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.custom-tooltip > a {
+  position: absolute;
+  width: 160px;
+  margin-left: -80px;
+  top: 100%;
+  left: 50%;
+
+  color: #eee;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-align: center;
+
+  background-color: #333;
+  border-radius: 8px;
+  padding: 3px 0;
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.custom-tooltip:hover > a { opacity: 1; }
+
 @media (min-width: 576px) {
   /* Show only on big screen */
   .if-mobile { display: none }

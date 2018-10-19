@@ -10,7 +10,7 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 </div>
 -->
 
-<p><iframe src="https://discordapp.com/widget?id=487203989830631435&theme=dark"></iframe></p>
+<iframe class=unless-mobile src="https://discordapp.com/widget?id=487203989830631435&theme=dark"></iframe>
 
 찾아오신 것을 환영합니다!
 
@@ -19,8 +19,11 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 
 한국 러스트 사용자 그룹은 러스트를 사용하거나 러스트 개발에 참여하고 있는
 사용자들의 모임입니다. 현재는 작은 규모이고, [디스코드]를 이용하고 있습니다.
-궁금한 점을 물어보셔도 좋고 하고 싶은 이야기를 하셔도 좋습니다. 오른쪽의
+궁금한 점을 물어보셔도 좋고 하고 싶은 이야기를 하셔도 좋습니다.
+<span class=unless-mobile>오른쪽</span><span class=if-mobile>아래</span>의
 화면으로 지금 대화에 참여하세요!
+
+<p align=center><iframe class=if-mobile src="https://discordapp.com/widget?id=487203989830631435&theme=dark"></iframe></p>
 
 디스코드와 연결된 <span class="custom-tooltip">IRC 채널
 <irc://irc.ozinger.org/#rust></span>도 운영하고있습니다.
@@ -43,44 +46,3 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 [러스트]: https://www.rust-lang.org
 [모질라]: https://www.mozilla.org
 [디스코드]: https://discord.gg/uqXGjEz
-
-<style>
-iframe {
-  float: right;
-  display: block;
-  width: 250px;
-  height: 350px;
-  border: none;
-  margin-left: -39px;
-
-  transform-origin: top right;
-  transform: scale(0.8);
-}
-
-.custom-tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.custom-tooltip > a {
-  position: absolute;
-  width: 160px;
-  margin-left: -80px;
-  top: 100%;
-  left: 50%;
-
-  color: #eee;
-  font-size: 0.8rem;
-  text-decoration: underline;
-  text-align: center;
-
-  background-color: #333;
-  border-radius: 8px;
-  padding: 3px 0;
-
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.custom-tooltip:hover > a { opacity: 1; }
-</style>
