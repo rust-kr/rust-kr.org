@@ -4,6 +4,7 @@
 FROM ekidd/rust-musl-builder
 COPY Cargo.lock Cargo.toml ./
 COPY src src
+RUN sudo chown -R rust:rust .
 RUN cargo build --release
 
 #
