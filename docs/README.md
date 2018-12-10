@@ -32,6 +32,8 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 - [러스트 공식 안내서: "The Rust Programming Language"](https://doc.rust-lang.org/stable/book/index.html) (영문)
   - [2판 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/)
   - [1판 한국어 번역](https://www.penflip.com/sarojaba/rust-doc-korean/blob/master/readme.md)
+- ["Rust By Example" 한국어 번역](https://hanbum.gitbooks.io/rustbyexample/content/)
+- ["The Edition Guide" 한국어 번역](https://yegeun542.github.io/rust-edition-guide-ko/)
 
 &nbsp;
 
