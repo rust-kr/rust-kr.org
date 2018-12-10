@@ -2,6 +2,7 @@
 name = "rust-kr"
 version = "0.1.1"
 authors = ["Hyeon Kim <simnalamburt@gmail.com>"]
+edition = "2018"
 
 [dependencies]
 iron = "0.6"
