@@ -112,7 +112,7 @@ fn main() {
 
 /// Root page handler
 fn index(_: &mut Request) -> IronResult<Response> {
-    read_docs("Home")
+    read_docs("README")
 }
 
 /// Wiki page handler
@@ -120,7 +120,7 @@ fn page(req: &mut Request) -> IronResult<Response> {
     use router::Router;
 
     // Parse URL
-    let name = req.extensions.get::<Router>().unwrap().find("name").unwrap_or("Home");
+    let name = req.extensions.get::<Router>().unwrap().find("name").unwrap_or("README");
     read_docs(name)
 }
 

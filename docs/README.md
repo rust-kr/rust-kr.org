@@ -29,7 +29,9 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 <irc://irc.ozinger.org/#rust></span>도 운영하고있습니다.
 
 - [설치하기](/pages/install)
-- [입문하기](https://doc.rust-lang.org/stable/book/2018-edition/index.html) (영문)
+- [러스트 공식 안내서: "The Rust Programming Language"](https://doc.rust-lang.org/stable/book/index.html) (영문)
+  - [2판 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/)
+  - [1판 한국어 번역](https://www.penflip.com/sarojaba/rust-doc-korean/blob/master/readme.md)
 
 &nbsp;
 
