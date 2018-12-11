@@ -1,6 +1,6 @@
 [package]
 name = "rust-kr"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Hyeon Kim <simnalamburt@gmail.com>"]
 edition = "2018"
 

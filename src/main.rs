@@ -31,18 +31,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#[macro_use(itry)] extern crate iron;
-#[macro_use(router)] extern crate router;
-extern crate staticfile;
-extern crate handlebars_iron as hbs;
-extern crate pulldown_cmark as cmark;
-
 use std::collections::BTreeMap;
-use iron::prelude::*;
-use iron::status;
+use iron::{prelude::*, status, itry};
 use iron::middleware::{Handler, AfterMiddleware};
 use staticfile::Static;
-use hbs::{Template, HandlebarsEngine, DirectorySource};
+use handlebars_iron::{Template, HandlebarsEngine, DirectorySource};
+use router::router;
 
 //
 // Configs
@@ -75,7 +69,7 @@ fn main() {
     });
 
     // Static file serving
-    c.link_around(move |main: Box<Handler>| -> Box<Handler> {
+    c.link_around(move |main: Box<dyn Handler>| -> Box<dyn Handler> {
         Box::new(move |req: &mut Request| -> IronResult<Response> {
             Static::new("public/").handle(req)
                 .or_else(|_| main.handle(req))
@@ -101,6 +95,7 @@ fn main() {
         hbr.add(Box::new(DirectorySource::new("templates", ".hbs")));
         if let Err(r) = hbr.reload() {
             use std::error::Error;
+
             panic!("{}", r.description());
         }
         hbr
@@ -146,6 +141,7 @@ fn all_docs(_: &mut Request) -> IronResult<Response> {
     let mut html = "<ul>".to_string();
     for page in pages {
         use std::fmt::Write;
+
         write!(&mut html, r#"<li><a href="/pages/{0}">{0}</a></li>"#, page).unwrap();
     }
     html.push_str("</ul>");
@@ -158,10 +154,8 @@ fn all_docs(_: &mut Request) -> IronResult<Response> {
 
 /// `name`을 인자로 받아, `docs/<name>.md` 파일을 렌더링하여 `IronResult<Response>`로 반환합니다.
 fn read_docs(name: &str) -> IronResult<Response> {
-    use std::fs::File;
-    use std::io::Read;
-    use cmark::Parser;
-    use cmark::html::push_html;
+    use std::{fs::File, io::Read};
+    use pulldown_cmark::{Parser, html::push_html};
 
     // Read file
     let path = format!("{}/{}.md", DOCS_DIR, name);
