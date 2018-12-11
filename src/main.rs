@@ -42,9 +42,9 @@ use router::router;
 // Configs
 //
 /// 서버가 소켓을 열 주소
-const ADDR: &'static str = "[::]:8000";
+const ADDR: &str = "[::]:8000";
 /// 마크다운 문서가 담긴 주소
-const DOCS_DIR: &'static str = "docs";
+const DOCS_DIR: &str = "docs";
 
 /// Entry point
 fn main() {
@@ -69,7 +69,7 @@ fn main() {
     });
 
     // Static file serving
-    c.link_around(move |main: Box<dyn Handler>| -> Box<dyn Handler> {
+    c.link_around(|main: Box<dyn Handler>| -> Box<dyn Handler> {
         Box::new(move |req: &mut Request| -> IronResult<Response> {
             Static::new("public/").handle(req)
                 .or_else(|_| main.handle(req))
