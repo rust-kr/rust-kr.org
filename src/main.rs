@@ -6,7 +6,7 @@
 //! docker run --detach \
 //!   --name rust-kr.org \
 //!   --restart always \
-//!   --publish 8000:8000 \
+//!   --publish 127.0.0.1:8000:8000 \
 //!   simnalamburt/rust-kr.org
 //!   snu.jokbo.me
 //! ```
