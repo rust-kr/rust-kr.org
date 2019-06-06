@@ -24,6 +24,14 @@ footer {
   justify-content: space-between;
 }
 
+/* Code block */
+article pre {
+  background-color: #f6f8fa !important;
+  border-radius: 3px;
+  padding: 16px;
+  line-height: 1.45;
+}
+
 /* Discord widget */
 iframe {
   border: none;
