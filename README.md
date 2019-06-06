@@ -3,7 +3,8 @@
 한국 러스트 사용자 그룹 홈페이지의 소스코드 입니다.
 
 ```bash
-cargo run
+zola build
+zola serve
 ```
 
 <br>
