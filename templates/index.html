@@ -33,7 +33,10 @@
 <hr>
 
 <article>
-  {{{ content }}}
+  {% block content %}
+    {% set page = get_section(path="pages/_index.md") %}
+    {{ page.content | safe }}
+  {% endblock content %}
 </article>
 
 <hr>
