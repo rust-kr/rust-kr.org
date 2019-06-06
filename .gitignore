@@ -1,2 +1,2 @@
-# Ignore build results
-/target/
+# Build results
+/public/

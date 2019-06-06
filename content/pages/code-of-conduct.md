@@ -1,3 +1,6 @@
++++
++++
+
 # 행동 규칙
 
 이 행동 규칙은 [Rust 기여자의 행동 규칙](https://github.com/rust-lang/rust/wiki/Note-development-policy#conduct)과 [/r/rust 서브레딧의 규칙](https://www.reddit.com/r/rust/comments/1nvsdh/a_note_on_conduct_please_read/)을 토대로, 후자를 한국어로 번역하고 한국어 화자에게 익숙하지 않을 수 있는 부분을 부연한 것입니다. 번역 수정을 포함한 제안은 IRC 채널 등의 공개된 장소에서 해 주세요.

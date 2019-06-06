@@ -33,7 +33,10 @@
 <hr>
 
 <article>
-  {{{ content }}}
+  {% block content %}
+    {% set page = get_section(path="pages/_index.md") %}
+    {{ page.content | safe }}
+  {% endblock content %}
 </article>
 
 <hr>
@@ -46,7 +49,7 @@
     </span>
   </div>
   <div>
-    Powered by <a style="font-weight:700" href="https://www.rust-lang.org/">Rust</a>
+    Powered by <a style="font-weight:700" href="https://www.getzola.org/">Zola</a>
   </div>
 </footer>
 

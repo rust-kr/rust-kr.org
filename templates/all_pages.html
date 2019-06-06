@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+  {% set section = get_section(path="pages/_index.md") %}
+  <ul>
+    {% for page in section.pages %}
+      {% if page.slug != "pages" %}
+        <li><a href="{{ page.permalink }}">{{ page.slug }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endblock content %}
