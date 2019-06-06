@@ -1,19 +1,12 @@
-//! [rust-kr.org] [![Docker Badge]][Docker Hub]
+//! [rust-kr.org]
 //! ========
 //! 한국 러스트 사용자 그룹 홈페이지의 소스코드 입니다.
 //!
 //! ```bash
-//! docker run --detach \
-//!   --name rust-kr.org \
-//!   --restart always \
-//!   --publish 127.0.0.1:8000:8000 \
-//!   simnalamburt/rust-kr.org
-//!   snu.jokbo.me
+//! cargo run
 //! ```
 //!
 //! [rust-kr.org]: https://rust-kr.org
-//! [Docker Badge]: https://badgen.net/docker/pulls/simnalamburt/rust-kr.org?icon=docker&label=pulls
-//! [Docker Hub]: https://hub.docker.com/r/simnalamburt/rust-kr.org/
 
 // rust-kr.org
 // Copyright (C) 2016-2018  Hyeon Kim
