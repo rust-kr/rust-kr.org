@@ -8,8 +8,12 @@ body {
   display: flex;
   align-items: center;
 }
-#header #text { line-height: 0.8; }
-#header small { font-size: 0.5em; }
+#header #text {
+  line-height: 0.8;
+}
+#header small {
+  font-size: 0.5em;
+}
 #header #logo {
   height: 100px;
   margin-right: 20px;
@@ -64,17 +68,23 @@ iframe.if-mobile {
   opacity: 0;
   transition: opacity 0.2s;
 }
-.custom-tooltip:hover > a { opacity: 1; }
+.custom-tooltip:hover > a {
+  opacity: 1;
+}
 
 @media (min-width: 576px) {
   /* Show only on big screen */
-  .if-mobile { display: none }
+  .if-mobile {
+    display: none;
+  }
 }
 
 /* Mobile support */
 @media (max-width: 575.98px) {
   /* Show only on small screen */
-  .unless-mobile { display: none }
+  .unless-mobile {
+    display: none;
+  }
 
   #header #text {
     font-size: 0.75em;
@@ -89,6 +99,39 @@ iframe.if-mobile {
 }
 
 /* GitHub Corner */
-.github-corner > svg { fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0; }
-.github-corner .octo-arm { transform-origin: 130px 106px; }
-.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+.github-corner > svg {
+  fill: #151513;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+.github-corner .octo-arm {
+  transform-origin: 130px 106px;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
