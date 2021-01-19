@@ -44,6 +44,7 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 - **[러스트 공식 사이트]**
 - [러스트 소스코드], [Servo 소스코드]
 - [러스트 통계], [Servo 통계]
+- [osdev]
 
 [러스트 공식 사이트]: http://www.rust-lang.org
 [러스트 소스코드]: https://www.github.com/rust-lang/rust
@@ -53,3 +54,4 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 [러스트]: https://www.rust-lang.org
 [모질라]: https://www.mozilla.org
 [디스코드]: https://discord.gg/uqXGjEz
+[osdev]: https://wiki.osdev.org/Rust
