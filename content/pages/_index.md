@@ -38,11 +38,13 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 ##### 관련 링크 모음
 - **[러스트 공식 사이트][러스트]**
 - [러스트 소스코드], [Servo 소스코드]
+- [러스트 재단]
 - [러스트 통계], [Servo 통계]
 - [osdev]
 
 [러스트 소스코드]: https://www.github.com/rust-lang/rust
 [Servo 소스코드]: https://www.github.com/servo/servo
+[러스트 재단]: https://foundation.rust-lang.org/
 [러스트 통계]: http://ruststat.youknowone.org
 [Servo 통계]: http://servostat.youknowone.org
 [러스트]: https://www.rust-lang.org
