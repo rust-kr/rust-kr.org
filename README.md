@@ -12,8 +12,10 @@ zola serve
 --------
 
 *rust-kr.org* is primarily distributed under the terms of the [GNU Affero General
-Public License v3.0] or any later version. See [COPYRIGHT] for details.
+Public License v3.0] or any later version. rust-kr emblem © 2016 [XT]. See
+[COPYRIGHT] for details.
 
 [rust-kr.org]: https://rust-kr.org
 [GNU Affero General Public License v3.0]: LICENSE
+[XT]: https://xtendo.org/
 [COPYRIGHT]: COPYRIGHT
