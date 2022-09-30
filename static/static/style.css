@@ -32,6 +32,11 @@ article pre {
   line-height: 1.45;
 }
 
+article blockquote {
+  border-left: 3px solid #8b949e;
+  padding-left: 16px;
+}
+
 /* Discord widget */
 iframe {
   border: none;
