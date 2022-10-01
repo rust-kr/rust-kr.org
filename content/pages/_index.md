@@ -27,13 +27,20 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 
 디스코드와 연결된 <span class="custom-tooltip">IRC 채널<irc://irc.ozinger.org/#rust></span>도 운영하고 있습니다.
 
-- [설치하기](/pages/install)
+- [행동 규칙]
+
+##### 학습하기
+
+먼저 [설치하기](/pages/install)를 통해 설치를 해주세요.
+
+러스트 공식 안내서인 "The Rust Programming Language"로 배워보세요.
 - ["The Rust Programming Language" 한국어 번역, doc.rust-kr.org](https://doc.rust-kr.org)
   - ["The Rust Programming Language" 영어 원문](https://doc.rust-lang.org/book/)
   - [구버전 (2nd edition) 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/)
-- ["Rust By Example" 한국어 번역](https://hanbum.gitbooks.io/rustbyexample/content/)
-- ["The Edition Guide" 한국어 번역](https://yegeun542.github.io/rust-edition-guide-ko/)
-- [행동 규칙]
+
+어렵다면 ["Tour of Rust"](https://tourofrust.com/00_ko.html)를, 빠르게 프로그램을 만들어보고 싶다면 [마이크로소프트의 "Rust로 첫 번째 단계 수행"](https://learn.microsoft.com/ko-kr/training/paths/rust-first-steps/)도 참고해보세요.
+
+["Rust By Example"](https://doc.rust-lang.org/rust-by-example/)([한국어 번역](https://hanbum.gitbooks.io/rustbyexample/content/))으로 각종 예제를 살펴보거나, ["The Edition Guide"](https://doc.rust-lang.org/edition-guide/introduction.html)([한국어 번역](https://yegeun542.github.io/rust-edition-guide-ko/))으로 에디션별 주요 변화를 알 수 있습니다.
 
 &nbsp;
 
