@@ -13,7 +13,7 @@ Rust 설치하기
 패키지매니저가 한번에 설치됩니다.
 
 ```bash
-curl https://sh.rustup.rs -sSf | sh -s -- --help
+curl https://sh.rustup.rs -sSf | sh -s
 ```
 
 윈도우의 경우, [rustup‑init.exe] 파일을 받아서 실행하기만 하면 시스템에 Rust가
