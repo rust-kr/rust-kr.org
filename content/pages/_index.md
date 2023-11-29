@@ -28,9 +28,9 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 디스코드와 연결된 <span class="custom-tooltip">IRC 채널<irc://irc.ozinger.org/#rust></span>도 운영하고 있습니다.
 
 - [설치하기](/pages/install)
-- [러스트 공식 안내서: "The Rust Programming Language"](https://doc.rust-lang.org/book/) (영문)
-  - [2021판 한국어 번역](https://rust-kr.github.io/doc.rust-kr.org/)
-  - [2판 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/)
+- ["The Rust Programming Language" 한국어 번역, doc.rust-kr.org](https://doc.rust-kr.org)
+  - ["The Rust Programming Language" 영어 원문](https://doc.rust-lang.org/book/)
+  - [구버전 (2nd edition) 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/)
 - ["Rust By Example" 한국어 번역](https://hanbum.gitbooks.io/rustbyexample/content/)
 - ["The Edition Guide" 한국어 번역](https://yegeun542.github.io/rust-edition-guide-ko/)
 - [행동 규칙]
