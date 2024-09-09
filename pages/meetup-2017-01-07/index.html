@@ -33,29 +33,29 @@
 
 <article>
   
-  <h1 id="2017nyeon-1hweo-7il-koweddmoim">2017년 1월 7일 코딩모임</h1>
+  <h1 id="2017nyeon-1weol-7il-kodingmoim">2017년 1월 7일 코딩모임</h1>
 <p>2017년 새해 맞이 코딩모임을 합니다. 한국에 온 <a href="http://fitzgeraldnick.com/">Nick Fitzgerald</a>가 참석하겠다고 하네요.</p>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2017</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">7</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
-</span><span style="color:#65737e;">// http://www.toz.co.kr/branch/main/index.htm?id=11
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">토즈 강남2호점</span><span>&quot;;
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2017</span><span>, </span><span style="color:#0086b3;">1</span><span>, </span><span style="color:#0086b3;">7</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
+</span><span style="font-style:italic;color:#969896;">// http://www.toz.co.kr/branch/main/index.htm?id=11
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;토즈 강남2호점&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 주최: 서상현
-</span><span style="color:#b48ead;">let</span><span> contact = &quot;</span><span style="color:#a3be8c;">@sanxiyn</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// 주최: 서상현
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> contact </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;@sanxiyn&quot;</span><span>;
 </span><span>
-</span><span style="color:#b48ead;">let mut</span><span> members_and_tasks = [
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">redox-os</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">meg</span><span>&quot;), </span><span style="color:#65737e;">// hopefully
-</span><span>    (&quot;</span><span style="color:#a3be8c;">fitzgen</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">cpp_demangle</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">OpenIRC</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeehoonk</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">xv6-rs || POPL-slide..?</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">disjukr</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">naver cafe chat alternative</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">maxtnt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">leaf를 이용한 게임</span><span>&quot;),
+</span><span style="font-weight:bold;color:#a71d5d;">let mut</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#183691;">&quot;redox-os&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;meg&quot;</span><span>), </span><span style="font-style:italic;color:#969896;">// hopefully
+</span><span>    (</span><span style="color:#183691;">&quot;fitzgen&quot;</span><span>, </span><span style="color:#183691;">&quot;cpp_demangle&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;OpenIRC&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;jeehoonk&quot;</span><span>, </span><span style="color:#183691;">&quot;xv6-rs || POPL-slide..?&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;disjukr&quot;</span><span>, </span><span style="color:#183691;">&quot;naver cafe chat alternative&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;maxtnt&quot;</span><span>, </span><span style="color:#183691;">&quot;leaf를 이용한 게임&quot;</span><span>),
 </span><span>];
 </span><span>
-</span><span style="color:#65737e;">// 참석할 지도 모르는 사람
-</span><span style="color:#96b5b4;">if_possible</span><span>((&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Rocket</span><span>&quot;)).</span><span style="color:#96b5b4;">and_then</span><span>(|</span><span style="color:#bf616a;">e</span><span>| members_and_tasks.</span><span style="color:#96b5b4;">push</span><span>(e));
+</span><span style="font-style:italic;color:#969896;">// 참석할 지도 모르는 사람
+</span><span style="color:#62a35c;">if_possible</span><span>((</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, </span><span style="color:#183691;">&quot;Rocket&quot;</span><span>)).</span><span style="color:#62a35c;">and_then</span><span>(|e| members_and_tasks.</span><span style="color:#62a35c;">push</span><span>(e));
 </span></code></pre>
 
 

@@ -33,12 +33,12 @@
 
 <article>
   
-  <h1 id="2014nyeon-5hweo-17il-koweddmoim">2014년 5월 17일 코딩모임</h1>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::DateTimeZ::from_ymdhms;
+  <h1 id="2014nyeon-5weol-17il-kodingmoim">2014년 5월 17일 코딩모임</h1>
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::DateTimeZ::from_ymdhms;
 </span><span>
-</span><span style="color:#b48ead;">let mut</span><span> datetime = </span><span style="color:#96b5b4;">from_ymdhms</span><span>(</span><span style="color:#d08770;">2014</span><span>, </span><span style="color:#d08770;">5</span><span>, </span><span style="color:#d08770;">17</span><span>, </span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>).</span><span style="color:#96b5b4;">unwrap</span><span>(); </span><span style="color:#65737e;">// FIXME 늦잠자면 미뤄질 수 있어서 일단 mutable
-</span><span style="color:#b48ead;">let</span><span> place = </span><span style="color:#96b5b4;">get_suggestion</span><span>().</span><span style="color:#96b5b4;">unwrap_or</span><span>(&quot;</span><span style="color:#a3be8c;">지난번 모임의 강남역 카페</span><span>&quot;); </span><span style="color:#65737e;">// FIXME implement get_suggestion()
-</span><span style="color:#b48ead;">let mut</span><span> members = vec!(&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">youknowone</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;);
+</span><span style="font-weight:bold;color:#a71d5d;">let mut</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#62a35c;">from_ymdhms</span><span>(</span><span style="color:#0086b3;">2014</span><span>, </span><span style="color:#0086b3;">5</span><span>, </span><span style="color:#0086b3;">17</span><span>, </span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>).</span><span style="color:#62a35c;">unwrap</span><span>(); </span><span style="font-style:italic;color:#969896;">// FIXME 늦잠자면 미뤄질 수 있어서 일단 mutable
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#62a35c;">get_suggestion</span><span>().</span><span style="color:#62a35c;">unwrap_or</span><span>(</span><span style="color:#183691;">&quot;지난번 모임의 강남역 카페&quot;</span><span>); </span><span style="font-style:italic;color:#969896;">// FIXME implement get_suggestion()
+</span><span style="font-weight:bold;color:#a71d5d;">let mut</span><span> members </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>vec!(</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#183691;">&quot;youknowone&quot;</span><span>, </span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>);
 </span></code></pre>
 
 

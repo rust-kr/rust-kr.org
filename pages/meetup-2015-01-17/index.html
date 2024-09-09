@@ -33,30 +33,30 @@
 
 <article>
   
-  <h1 id="2015nyeon-1hweo-17il-koweddmoim">2015년 1월 17일 코딩모임</h1>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::rand::random;
+  <h1 id="2015nyeon-1weol-17il-kodingmoim">2015년 1월 17일 코딩모임</h1>
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>std::rand::random;
 </span><span>
-</span><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local};
+</span><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local};
 </span><span>
-</span><span style="color:#65737e;">// pyjog 장소
-</span><span style="color:#65737e;">// 사랑해요 pyjog!!
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">http://maru180.com/page/about.php</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// pyjog 장소
+</span><span style="font-style:italic;color:#969896;">// 사랑해요 pyjog!!
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;http://maru180.com/page/about.php&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// pyjog 시작 시간
-</span><span style="color:#65737e;">// 사랑해요 pyjog!!!!
-</span><span style="color:#65737e;">// 사랑해요 pyjog!!!!
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2015</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">17</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span style="font-style:italic;color:#969896;">// pyjog 시작 시간
+</span><span style="font-style:italic;color:#969896;">// 사랑해요 pyjog!!!!
+</span><span style="font-style:italic;color:#969896;">// 사랑해요 pyjog!!!!
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2015</span><span>, </span><span style="color:#0086b3;">1</span><span>, </span><span style="color:#0086b3;">17</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
 </span><span>
-</span><span style="color:#65737e;">// 추가하려면 klutzy를 호출
-</span><span style="color:#b48ead;">let</span><span> members_and_goals: Vec&lt;(&amp;</span><span style="color:#b48ead;">&#39;static str</span><span>, &amp;</span><span style="color:#b48ead;">&#39;static str</span><span>)&gt; = vec!(
-</span><span>    (&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">suruga</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">disjukr_talk</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tic-tac-toe</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">obj-rs</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, </span><span style="color:#b48ead;">if </span><span>random::&lt;</span><span style="color:#b48ead;">bool</span><span>&gt;() { &quot;</span><span style="color:#a3be8c;">rust-encoding streaming</span><span>&quot; } </span><span style="color:#b48ead;">else </span><span>{ &quot;</span><span style="color:#a3be8c;">rustdoc</span><span>&quot; }),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rustc completion</span><span>&quot;),
+</span><span style="font-style:italic;color:#969896;">// 추가하려면 klutzy를 호출
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_goals: </span><span style="color:#0086b3;">Vec</span><span>&lt;(</span><span style="font-weight:bold;color:#a71d5d;">&amp;&#39;static str</span><span>, </span><span style="font-weight:bold;color:#a71d5d;">&amp;&#39;static str</span><span>)&gt; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>vec!(
+</span><span>    (</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#183691;">&quot;suruga&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;disjukr_talk&quot;</span><span>, </span><span style="color:#183691;">&quot;tic-tac-toe&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;obj-rs&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="font-weight:bold;color:#a71d5d;">if </span><span>random::&lt;</span><span style="font-weight:bold;color:#a71d5d;">bool</span><span>&gt;() { </span><span style="color:#183691;">&quot;rust-encoding streaming&quot; </span><span>} </span><span style="font-weight:bold;color:#a71d5d;">else </span><span>{ </span><span style="color:#183691;">&quot;rustdoc&quot; </span><span>}),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#183691;">&quot;rustc completion&quot;</span><span>),
 </span><span>);
 </span><span>
-</span><span>assert!(members.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 
 

@@ -33,27 +33,27 @@
 
 <article>
   
-  <h1 id="2014nyeon-12hweo-20il-koweddmoim">2014년 12월 20일 코딩모임</h1>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::rng::{Rng, task_rng};
-</span><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local};
+  <h1 id="2014nyeon-12weol-20il-kodingmoim">2014년 12월 20일 코딩모임</h1>
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>std::rng::{Rng, task_rng};
+</span><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local};
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2014</span><span>, </span><span style="color:#d08770;">12</span><span>, </span><span style="color:#d08770;">20</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2014</span><span>, </span><span style="color:#0086b3;">12</span><span>, </span><span style="color:#0086b3;">20</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
 </span><span>
-</span><span style="color:#65737e;">// https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/8947_1571844539705082_5362539421560340478_n.jpg?oh=f2c57c22264e5ebc67f3ec6ff1bfc7b5&amp;oe=551E5DF8&amp;__gda__=1426123653_b3f00a86832caba6114c20068b804762
-</span><span style="color:#65737e;">// http://instagram.com/p/vS3Se7k6Hq
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">하이브 아레나</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/8947_1571844539705082_5362539421560340478_n.jpg?oh=f2c57c22264e5ebc67f3ec6ff1bfc7b5&amp;oe=551E5DF8&amp;__gda__=1426123653_b3f00a86832caba6114c20068b804762
+</span><span style="font-style:italic;color:#969896;">// http://instagram.com/p/vS3Se7k6Hq
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;하이브 아레나&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 추가하려면 klutzy를 호출
-</span><span style="color:#b48ead;">let</span><span> members_and_goals = vec!(
-</span><span>    (&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, Some(&quot;</span><span style="color:#a3be8c;">typo/pprust</span><span>&quot;)),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, None),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, Some(&quot;</span><span style="color:#a3be8c;">strconv</span><span>&quot;)),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lexifdev</span><span>&quot;, None),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">disjukr</span><span>&quot;, None),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, None),
+</span><span style="font-style:italic;color:#969896;">// 추가하려면 klutzy를 호출
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_goals </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>vec!(
+</span><span>    (</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#0086b3;">Some</span><span>(</span><span style="color:#183691;">&quot;typo/pprust&quot;</span><span>)),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#0086b3;">None</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#0086b3;">Some</span><span>(</span><span style="color:#183691;">&quot;strconv&quot;</span><span>)),
+</span><span>    (</span><span style="color:#183691;">&quot;lexifdev&quot;</span><span>, </span><span style="color:#0086b3;">None</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;disjukr&quot;</span><span>, </span><span style="color:#0086b3;">None</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, </span><span style="color:#0086b3;">None</span><span>),
 </span><span>);
 </span><span>
-</span><span>assert!(members.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 
 

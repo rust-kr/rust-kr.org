@@ -33,25 +33,25 @@
 
 <article>
   
-  <h1 id="2015nyeon-4hweo-11il-koweddmoim">2015년 4월 11일 코딩모임</h1>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+  <h1 id="2015nyeon-4weol-11il-kodingmoim">2015년 4월 11일 코딩모임</h1>
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#65737e;">// 사랑해요 pyjog!
-</span><span style="color:#65737e;">// https://www.facebook.com/events/973331902685708/973331906019041/
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2015</span><span>, </span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">11</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">하이브 아레나</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// 사랑해요 pyjog!
+</span><span style="font-style:italic;color:#969896;">// https://www.facebook.com/events/973331902685708/973331906019041/
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2015</span><span>, </span><span style="color:#0086b3;">4</span><span>, </span><span style="color:#0086b3;">11</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;하이브 아레나&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 추가하려면 klutzy를 호출
-</span><span style="color:#b48ead;">let</span><span> members_and_tasks = [
-</span><span>    (&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-backtrace</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">fate</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-kr</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">capnp-rpc-rust</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">flt2dec ㅠㅠ</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">youknowone</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-objc+procedural-macro</span><span>&quot;),
+</span><span style="font-style:italic;color:#969896;">// 추가하려면 klutzy를 호출
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    (</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-backtrace&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;fate&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-kr&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, </span><span style="color:#183691;">&quot;capnp-rpc-rust&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;flt2dec ㅠㅠ&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;youknowone&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-objc+procedural-macro&quot;</span><span>),
 </span><span>];
 </span><span>
-</span><span>assert!(members_and_tasks.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members_and_tasks.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 
 

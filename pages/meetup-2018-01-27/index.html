@@ -33,43 +33,43 @@
 
 <article>
   
-  <h1 id="2018nyeon-1hweo-27il-koweddmoim">2018년 1월 27일 코딩모임</h1>
+  <h1 id="2018nyeon-1weol-27il-kodingmoim">2018년 1월 27일 코딩모임</h1>
 <p>2018년 새해 맞이 코딩모임을 합니다!</p>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#65737e;">// 일시 : 2018년 1월 27일 오후 2시
-</span><span style="color:#65737e;">// 장소 : 데브시스터즈 https://goo.gl/tShZf9
+</span><span style="font-style:italic;color:#969896;">// 일시 : 2018년 1월 27일 오후 2시
+</span><span style="font-style:italic;color:#969896;">// 장소 : 데브시스터즈 https://goo.gl/tShZf9
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2018</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">27</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">서울특별시 강남구 신사동 652-16 데브시스터즈 15층</span><span>&quot;;
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2018</span><span>, </span><span style="color:#0086b3;">1</span><span>, </span><span style="color:#0086b3;">27</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;서울특별시 강남구 신사동 652-16 데브시스터즈 15층&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 주최 : 김지현
-</span><span style="color:#65737e;">// 연락 : https://twitter.com/simnalamburt  https://hyeon.me
-</span><span style="color:#65737e;">//
-</span><span style="color:#65737e;">// 오징어 IRC의 #rust 채널에 계시다면, 채널에서 참가 의사를 밝혀주시면 됩니다.
+</span><span style="font-style:italic;color:#969896;">// 주최 : 김지현
+</span><span style="font-style:italic;color:#969896;">// 연락 : https://twitter.com/simnalamburt  https://hyeon.me
+</span><span style="font-style:italic;color:#969896;">//
+</span><span style="font-style:italic;color:#969896;">// 오징어 IRC의 #rust 채널에 계시다면, 채널에서 참가 의사를 밝혀주시면 됩니다.
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> contact = &quot;</span><span style="color:#a3be8c;">김지현</span><span>&quot;;
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> contact </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;김지현&quot;</span><span>;
 </span><span>
-</span><span style="color:#b48ead;">let mut</span><span> members_and_tasks = [
-</span><span>    </span><span style="color:#65737e;">// 참
-</span><span>    (&quot;</span><span style="color:#a3be8c;">지현</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-kr.org 보수</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">disjukr</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">adaptive thresholding</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">tobark</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tutorial</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">winterj</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">튜토리얼</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Unison OpenType generator</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">wooil</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">미래의 러스트 저역자를 찾으러</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">pbzweihander</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">일단 뭔가 짜보기</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Tirr</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">로그라이크 지도 만들기</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">elnya</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">튜토리얼</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">yjh0502</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Hyper 래핑 라이브러리 보강하기</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">ㅅ_ㅅ</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">튜토리얼 복습</span><span>&quot;),
+</span><span style="font-weight:bold;color:#a71d5d;">let mut</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    </span><span style="font-style:italic;color:#969896;">// 참
+</span><span>    (</span><span style="color:#183691;">&quot;지현&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-kr.org 보수&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;disjukr&quot;</span><span>, </span><span style="color:#183691;">&quot;adaptive thresholding&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;tobark&quot;</span><span>, </span><span style="color:#183691;">&quot;tutorial&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;winterj&quot;</span><span>, </span><span style="color:#183691;">&quot;튜토리얼&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;Unison OpenType generator&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;wooil&quot;</span><span>, </span><span style="color:#183691;">&quot;미래의 러스트 저역자를 찾으러&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;pbzweihander&quot;</span><span>, </span><span style="color:#183691;">&quot;일단 뭔가 짜보기&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;Tirr&quot;</span><span>, </span><span style="color:#183691;">&quot;로그라이크 지도 만들기&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;elnya&quot;</span><span>, </span><span style="color:#183691;">&quot;튜토리얼&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;yjh0502&quot;</span><span>, </span><span style="color:#183691;">&quot;Hyper 래핑 라이브러리 보강하기&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;ㅅ_ㅅ&quot;</span><span>, </span><span style="color:#183691;">&quot;튜토리얼 복습&quot;</span><span>),
 </span><span>
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rendezvous</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Moonrise</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Nal</span><span>&quot;),
+</span><span>    (</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, </span><span style="color:#183691;">&quot;rendezvous&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;Moonrise&quot;</span><span>, </span><span style="color:#183691;">&quot;Nal&quot;</span><span>),
 </span><span>
-</span><span>    </span><span style="color:#65737e;">// 불참
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeehoon.kang</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">crossbeam</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">성큼이</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">튜토리얼 복습</span><span>&quot;),
+</span><span>    </span><span style="font-style:italic;color:#969896;">// 불참
+</span><span>    (</span><span style="color:#183691;">&quot;jeehoon.kang&quot;</span><span>, </span><span style="color:#183691;">&quot;crossbeam&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;성큼이&quot;</span><span>, </span><span style="color:#183691;">&quot;튜토리얼 복습&quot;</span><span>),
 </span><span>];
 </span></code></pre>
 <iframe

@@ -33,52 +33,52 @@
 
 <article>
   
-  <h1 id="rust-sseocihagi">Rust 설치하기</h1>
-<h3 id="a-rustup-sahyonhagi">A. <a href="https://rustup.rs">Rustup</a> 사용하기</h3>
+  <h1 id="rust-seolcihagi">Rust 설치하기</h1>
+<h3 id="a-rustup-sayonghagi">A. <a href="https://rustup.rs">Rustup</a> 사용하기</h3>
 <p><b><a href="https://rustup.rs">rustup</a></b>을 쓰면 윈도우, 맥, 리눅스 등 대부분의 환경에서 별도의 지식 없이
 손쉽게 러스트를 설치할 수 있습니다. <a href="https://www.rust-lang.org/ko-KR/install.html">Rust 공식 설치 가이드</a>가 제일 권장하는
 방법이므로, 안심하고 사용하셔도 됩니다.</p>
 <p>리눅스와 맥의 경우 셸에서 아래의 커맨드 한줄만 입력하면 Rust 컴파일러와
 패키지매니저가 한번에 설치됩니다.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">curl</span><span> https://sh.rustup.rs</span><span style="color:#bf616a;"> -sSf </span><span>| </span><span style="color:#bf616a;">sh -s</span><span> -- --help
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>curl https://sh.rustup.rs -sSf </span><span style="font-weight:bold;color:#a71d5d;">| </span><span>sh -s
 </span></code></pre>
 <p>윈도우의 경우, <a href="https://win.rustup.rs/">rustup‑init.exe</a> 파일을 받아서 실행하기만 하면 시스템에 Rust가
 설치됩니다.</p>
 <p> </p>
-<h3 id="b-paekijimaenijje-sahyonhagi">B. 패키지매니저 사용하기</h3>
+<h3 id="b-paekijimaenijeo-sayonghagi">B. 패키지매니저 사용하기</h3>
 <p><a href="https://rustup.rs">rustup</a>을 쓰기 싫은경우, 각 시스템에 기본으로 탑재되어있는 패키지매니저를
 사용하여 설치해도 됩니다. 그러나 이와 같은 방식으로 설치할경우, <strong>상당히 늦은
 버전의 Rust가 설치되므로 주의하세요</strong>.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># Ubuntu, Debian
-</span><span style="color:#bf616a;">apt</span><span> install rustc cargo
-</span><span style="color:#65737e;"># Fedora
-</span><span style="color:#bf616a;">dnf</span><span> install rust
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#969896;"># Ubuntu, Debian
+</span><span>apt install rustc cargo
+</span><span style="font-style:italic;color:#969896;"># Fedora
+</span><span>dnf install rust
 </span><span>
-</span><span style="color:#65737e;"># macOS에서 Homebrew를 쓰는 경우
-</span><span style="color:#bf616a;">brew</span><span> install rust
-</span><span style="color:#65737e;"># macOS에서 Mac Ports를 쓰는 경우
-</span><span style="color:#bf616a;">port</span><span> install rust
+</span><span style="font-style:italic;color:#969896;"># macOS에서 Homebrew를 쓰는 경우
+</span><span>brew install rust
+</span><span style="font-style:italic;color:#969896;"># macOS에서 Mac Ports를 쓰는 경우
+</span><span>port install rust
 </span><span>
-</span><span style="color:#65737e;"># 윈도우즈에서 Chocolatey를 쓰는 경우
-</span><span style="color:#bf616a;">choco</span><span> install rust     </span><span style="color:#65737e;"># GNU ABI
-</span><span style="color:#bf616a;">choco</span><span> install rust-ms  </span><span style="color:#65737e;"># MSVC ABI
+</span><span style="font-style:italic;color:#969896;"># 윈도우즈에서 Chocolatey를 쓰는 경우
+</span><span>choco install rust     </span><span style="font-style:italic;color:#969896;"># GNU ABI
+</span><span>choco install rust-ms  </span><span style="font-style:italic;color:#969896;"># MSVC ABI
 </span><span>
-</span><span style="color:#65737e;"># OpenSUSE
-</span><span style="color:#bf616a;">zypper</span><span> in rust
-</span><span style="color:#65737e;"># Gentoo Linux
-</span><span style="color:#bf616a;">emerge</span><span> dev-lang/rust
-</span><span style="color:#65737e;"># Arch Linux, Manjaro Linux, msys2
-</span><span style="color:#bf616a;">pacman -S</span><span> rust
-</span><span style="color:#65737e;"># Alpine Linux
-</span><span style="color:#bf616a;">apk</span><span> add rust
+</span><span style="font-style:italic;color:#969896;"># OpenSUSE
+</span><span>zypper in rust
+</span><span style="font-style:italic;color:#969896;"># Gentoo Linux
+</span><span>emerge dev-lang/rust
+</span><span style="font-style:italic;color:#969896;"># Arch Linux, Manjaro Linux, msys2
+</span><span>pacman -S rust
+</span><span style="font-style:italic;color:#969896;"># Alpine Linux
+</span><span>apk add rust
 </span><span>
-</span><span style="color:#65737e;"># FreeBSD
-</span><span style="color:#bf616a;">pkg</span><span> install lang/rust
-</span><span style="color:#65737e;"># OpenBSD
-</span><span style="color:#bf616a;">pkg_add</span><span> rust
+</span><span style="font-style:italic;color:#969896;"># FreeBSD
+</span><span>pkg install lang/rust
+</span><span style="font-style:italic;color:#969896;"># OpenBSD
+</span><span>pkg_add rust
 </span></code></pre>
 <br>
-<h3 id="c-jjijjeo-reosseteureul-bbiddehagi">C. 직접 러스트를 빌드하기</h3>
+<h3 id="c-jigjeob-reoseuteureul-bildeuhagi">C. 직접 러스트를 빌드하기</h3>
 <p>일반 사용자의 경우, 아주 특이한 경우를 제외하면 Rust를 직접 빌드할 필요가 전혀
 없습니다. 하지만 Rust 컴파일러를 직접 고치고 싶으시다면, 개발환경에서 Rust를
 빌드하셔야합니다.</p>
@@ -96,13 +96,13 @@
 </li>
 <li>
 <p><a href="https://github.com/rust-lang/rust">Github 저장소</a>에서 소스를 다운 받으세요.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> clone https://github.com/rust-lang/rust.git
-</span><span style="color:#96b5b4;">cd</span><span> rust/
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>git clone https://github.com/rust-lang/rust.git
+</span><span style="color:#62a35c;">cd</span><span> rust/
 </span></code></pre>
 </li>
 <li>
 <p>해당 디렉토리로 이동해 아래와 같이 빌드를 수행해주세요.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">./x.py</span><span> build
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>./x.py build
 </span></code></pre>
 </li>
 <li>
@@ -117,29 +117,29 @@
 <li>
 <p><code>make install DESTDIR=&lt;경로&gt;</code> 를 이용해 특정한 경로에 rust 를 설치하기.</p>
 <p>이 경우에는 원하는 장소에 rust 를 설치하여 사용할 수 있습니다.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">make</span><span> install DESTDIR=&quot;</span><span style="color:#a3be8c;">/Users/Jeyraof/bin/</span><span>&quot;
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>make install DESTDIR=</span><span style="color:#183691;">&quot;/Users/Jeyraof/bin/&quot;
 </span></code></pre>
 </li>
 </ol>
 </li>
 <li>
 <p>위에서 결정한 바이너리의 디렉토리를 PATH 에 등록해 줍니다.</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span>&lt;경로&gt;
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">export </span><span>PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$</span><span>PATH</span><span style="color:#183691;">:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;
 </span></code></pre>
 <p>매번 수행하기 귀찮다면 자신의 profile 에 등록해 놓으셔도 됩니다.</p>
 <p><code>~/.profile</code> 또는 <code>~/.bash_profile</code> 의 내용:</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span>&lt;경로&gt;
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">export </span><span>PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$</span><span>PATH</span><span style="color:#183691;">:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;
 </span></code></pre>
 <p>이제 새로운 세션부터는 그냥 rustc, rustpkg, rustdoc 을 사용할 수 있습니다.</p>
-<p>4.2의 &quot;빌드된 현재의 저장소를 그대로 사용하기&quot; 를 사용하시려면 다음과 같이
+<p>4.2의 "빌드된 현재의 저장소를 그대로 사용하기" 를 사용하시려면 다음과 같이
 하시면 됩니다. (&lt;경로&gt;는 보통 '&lt;소스디렉토리&gt;/x86_64-unknown-linux-gnu' 이런
 형식으로 생성됩니다)</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span>&lt;경로&gt;/stage2/bin
-</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">LD_LIBRARY_PATH</span><span>=</span><span style="color:#a3be8c;">$:</span><span>&lt;경로&gt;/stage2/lib
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">export </span><span>PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$</span><span>PATH</span><span style="color:#183691;">:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span>/stage2/bin
+</span><span style="font-weight:bold;color:#a71d5d;">export </span><span>LD_LIBRARY_PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span>/stage2/lib
 </span></code></pre>
 <p>~/.profile 또는 ~/.bash_profile 의 내용:</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span>&lt;경로&gt;/stage2/bin
-</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">LD_LIBRARY_PATH</span><span>=$</span><span style="color:#bf616a;">PATH</span><span style="color:#a3be8c;">:</span><span>&lt;경로&gt;/stage2/lib
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">export </span><span>PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$</span><span>PATH</span><span style="color:#183691;">:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span>/stage2/bin
+</span><span style="font-weight:bold;color:#a71d5d;">export </span><span>LD_LIBRARY_PATH</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">$</span><span>PATH</span><span style="color:#183691;">:</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span>경로</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span>/stage2/lib
 </span></code></pre>
 </li>
 <li>
@@ -151,12 +151,12 @@
 </li>
 </ol>
 <br>
-<h3 id="d-jjijjeo-reosseteureul-bbiddehagi-windowsyi-ggyeonu">D. 직접 러스트를 빌드하기 (Windows의 경우)</h3>
+<h3 id="d-jigjeob-reoseuteureul-bildeuhagi-windowsyi-gyeongu">D. 직접 러스트를 빌드하기 (Windows의 경우)</h3>
 <p>윈도우에서 Rust를 빌드하려면 먼저 <a href="http://mingw.org/">mingw</a>를 준비해야 합니다.</p>
 <ul>
 <li><a href="http://sourceforge.net/projects/mingw/files/">mingw 다운로드 페이지</a>에서 인스톨러를 받아서 실행해주세요. 몇 가지 기본
 패키지가 받아진 다음 MinGW Installation Manager가 나타납니다.</li>
-<li>&quot;mingw-developer-toolkit&quot;, &quot;mingw32-base&quot;, &quot;mingw32-gcc-g++&quot;를 선택해
+<li>"mingw-developer-toolkit", "mingw32-base", "mingw32-gcc-g++"를 선택해
 설치해주세요. mingw 디렉토리에서 <code>msys/1.0/msys.bat</code>을 실행하면 셸이 뜹니다.</li>
 <li><code>/postinstall/pi.sh</code>를 실행해주세요. 몇 가지 세팅이 끝나면 Rust를 빌드할 수
 있는 환경이 준비됩니다.</li>

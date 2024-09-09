@@ -33,7 +33,7 @@
 
 <article>
   
-  <h1 id="2015nyeon-5hweo-16il-hanggu-rust-sahyonja-moim-2-koweddmoim">2015년 5월 16일 한국 Rust 사용자 모임 #2 + 코딩모임</h1>
+  <h1 id="2015nyeon-5weol-16il-hangug-rust-sayongja-moim-2-kodingmoim">2015년 5월 16일 한국 Rust 사용자 모임 #2 + 코딩모임</h1>
 <p>2015-04-27 공지: <strong><a href="http://killercup.github.io/bitrust/">[breaking-change]</a></strong>: 장소가 변경되었습니다!</p>
 <p><a href="http://users.rust-lang.org/t/rust-1-0-launch-event-details-action-required-for-event-organizers/1025">Rust 1.0을 기념하여</a> 제 2회 한국 Rust 사용자 모임을 개최합니다.</p>
 <ul>
@@ -54,11 +54,11 @@
 <li>수다 혹은 코딩을 하다 밥을 먹으러 갑니다.</li>
 </ul>
 <p>예약은 <a href="http://onoffmix.com/event/45564">onoffmix 페이지</a>에서 할 수 있습니다.</p>
-<h2 id="koweddmoim">+ 코딩모임</h2>
+<h2 id="kodingmoim">+ 코딩모임</h2>
 <p>사용자 모임이 시작하기 전, 14:00부터 정기 Rust 코딩모임을 진행합니다.
 (17:00의 사용자 모임과는 별개입니다! 꼭 참여하실 필요는 없습니다.)</p>
 <ul>
-<li>코딩모임의 슬로건은 &quot;집에서는 집중도 안되니 함께 모여 코딩에 집중하자&quot;입니다. 따라서,
+<li>코딩모임의 슬로건은 "집에서는 집중도 안되니 함께 모여 코딩에 집중하자"입니다. 따라서,
 <ul>
 <li>코딩이 가능한 노트북 환경을 준비해 오셔야 합니다.</li>
 <li>모임에서 진행하고 싶은 작업을 미리 정해주셔야 합니다.
@@ -70,30 +70,30 @@
 <a href="irc://ozinger.org/#rust">ozinger #rust 채널</a>에서 klutzy를 호출하여
 닉네임 및 진행하고 싶은 작업을 알려주시면 됩니다.</li>
 </ul>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#![</span><span style="color:#bf616a;">stable</span><span>(feature = &quot;</span><span style="color:#a3be8c;">rust1</span><span>&quot;, since = &quot;</span><span style="color:#a3be8c;">1.0.0</span><span>&quot;)]
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#![stable(feature </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;rust1&quot;</span><span>, since </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;1.0.0&quot;</span><span>)]
 </span><span>
-</span><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+</span><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2015</span><span>, </span><span style="color:#d08770;">5</span><span>, </span><span style="color:#d08770;">16</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
-</span><span style="color:#65737e;">// [breaking-change]: 장소 변경
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">강남 토즈 강남2호점</span><span>&quot;;
-</span><span>assert!(place != &quot;</span><span style="color:#a3be8c;">강남 토즈 강남타워점</span><span>&quot;);
-</span><span>assert!(place != &quot;</span><span style="color:#a3be8c;">강남 토즈 강남점</span><span>&quot;);
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2015</span><span>, </span><span style="color:#0086b3;">5</span><span>, </span><span style="color:#0086b3;">16</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
+</span><span style="font-style:italic;color:#969896;">// [breaking-change]: 장소 변경
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;강남 토즈 강남2호점&quot;</span><span>;
+</span><span>assert!(place </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#183691;">&quot;강남 토즈 강남타워점&quot;</span><span>);
+</span><span>assert!(place </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#183691;">&quot;강남 토즈 강남점&quot;</span><span>);
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> members_and_tasks = [
-</span><span>    (&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tomo/suruga</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">fate</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeyraof</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tutorial</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">md.rs</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">youknowone</span><span>&quot;, unimplemented!()),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, unimplemented!()),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">토성구름</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">translation/번역</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">ㅅ_ㅅ</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tutorial</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">servo</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">limeburst</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">pdb</span><span>&quot;),
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    (</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#183691;">&quot;tomo/suruga&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;fate&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;jeyraof&quot;</span><span>, </span><span style="color:#183691;">&quot;tutorial&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;md.rs&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;youknowone&quot;</span><span>, unimplemented!()),
+</span><span>    (</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, unimplemented!()),
+</span><span>    (</span><span style="color:#183691;">&quot;토성구름&quot;</span><span>, </span><span style="color:#183691;">&quot;translation/번역&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;ㅅ_ㅅ&quot;</span><span>, </span><span style="color:#183691;">&quot;tutorial&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#183691;">&quot;servo&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;limeburst&quot;</span><span>, </span><span style="color:#183691;">&quot;pdb&quot;</span><span>),
 </span><span>];
 </span><span>
-</span><span>assert!(members_and_tasks.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members_and_tasks.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 
 

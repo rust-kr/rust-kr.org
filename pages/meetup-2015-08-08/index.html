@@ -33,26 +33,26 @@
 
 <article>
   
-  <h1 id="2015nyeon-8hweo-8il-koweddmoim">2015년 8월 8일 코딩모임</h1>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+  <h1 id="2015nyeon-8weol-8il-kodingmoim">2015년 8월 8일 코딩모임</h1>
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2015</span><span>, </span><span style="color:#d08770;">8</span><span>, </span><span style="color:#d08770;">8</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
-</span><span style="color:#65737e;">// http://www.toz.co.kr/branch/main/index.htm?id=11
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">토즈 강남2호점</span><span>&quot;;
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2015</span><span>, </span><span style="color:#0086b3;">8</span><span>, </span><span style="color:#0086b3;">8</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
+</span><span style="font-style:italic;color:#969896;">// http://www.toz.co.kr/branch/main/index.htm?id=11
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;토즈 강남2호점&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 추가하려면 klutzy를 호출
-</span><span style="color:#b48ead;">let</span><span> members_and_tasks = [
-</span><span>    (&quot;</span><span style="color:#a3be8c;">klutzy</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">suruga</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeyraof</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tutorial</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeehoonkang</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rcu-rs</span><span>&quot;), </span><span style="color:#65737e;">// https://github.com/jeehoonkang/rcu-rs
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">fate</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sgkim126</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">fate</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Chrono tzfile</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">성큼이</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">tutorial</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, unimplemented!()),
+</span><span style="font-style:italic;color:#969896;">// 추가하려면 klutzy를 호출
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    (</span><span style="color:#183691;">&quot;klutzy&quot;</span><span>, </span><span style="color:#183691;">&quot;suruga&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;jeyraof&quot;</span><span>, </span><span style="color:#183691;">&quot;tutorial&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;jeehoonkang&quot;</span><span>, </span><span style="color:#183691;">&quot;rcu-rs&quot;</span><span>), </span><span style="font-style:italic;color:#969896;">// https://github.com/jeehoonkang/rcu-rs
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;fate&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;sgkim126&quot;</span><span>, </span><span style="color:#183691;">&quot;fate&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;Chrono tzfile&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;성큼이&quot;</span><span>, </span><span style="color:#183691;">&quot;tutorial&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, unimplemented!()),
 </span><span>];
 </span><span>
-</span><span>assert!(members_and_tasks.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members_and_tasks.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 
 

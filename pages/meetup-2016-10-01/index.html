@@ -33,37 +33,37 @@
 
 <article>
   
-  <h1 id="2016nyeon-10hweo-1il-koweddmoim">2016년 10월 1일 코딩모임</h1>
+  <h1 id="2016nyeon-10weol-1il-kodingmoim">2016년 10월 1일 코딩모임</h1>
 <p><a href="https://blog.rust-lang.org/2016/09/29/Rust-1.12.html">Rust 1.12</a> 릴리즈 기념으로 코딩모임을 가집니다! 참여를 원하시는분들은 <a href="http://webchat.ozinger.org/#rust">IRC로
 들어오셔서</a> 닉네임과 모임에서 할 코딩이 무엇인지 말해주세요.</p>
-<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>chrono::{DateTime, Local, Duration};
+<pre data-lang="rust" style="background-color:#ffffff;color:#323232;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-weight:bold;color:#a71d5d;">use </span><span>chrono::{DateTime, Local, Duration};
 </span><span>
-</span><span style="color:#65737e;">// 오후 2시
-</span><span style="color:#b48ead;">let</span><span> datetime = Local.</span><span style="color:#96b5b4;">ymd</span><span>(</span><span style="color:#d08770;">2016</span><span>, </span><span style="color:#d08770;">10</span><span>, </span><span style="color:#d08770;">1</span><span>).</span><span style="color:#96b5b4;">and_hms</span><span>(</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span style="font-style:italic;color:#969896;">// 오후 2시
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> datetime </span><span style="font-weight:bold;color:#a71d5d;">=</span><span> Local.</span><span style="color:#62a35c;">ymd</span><span>(</span><span style="color:#0086b3;">2016</span><span>, </span><span style="color:#0086b3;">10</span><span>, </span><span style="color:#0086b3;">1</span><span>).</span><span style="color:#62a35c;">and_hms</span><span>(</span><span style="color:#0086b3;">14</span><span>, </span><span style="color:#0086b3;">0</span><span>, </span><span style="color:#0086b3;">0</span><span>);
 </span><span>
-</span><span style="color:#65737e;">// 고마워요 파티게임즈! https://goo.gl/maps/feEVh8mD4jr
-</span><span style="color:#b48ead;">let</span><span> place = &quot;</span><span style="color:#a3be8c;">선릉 JS타워 3층 카페테리아</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// 고마워요 파티게임즈! https://goo.gl/maps/feEVh8mD4jr
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> place </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;선릉 JS타워 3층 카페테리아&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 주최: 김지현
-</span><span style="color:#b48ead;">let</span><span> contact = &quot;</span><span style="color:#a3be8c;">@simnalamburt</span><span>&quot;;
+</span><span style="font-style:italic;color:#969896;">// 주최: 김지현
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> contact </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;@simnalamburt&quot;</span><span>;
 </span><span>
-</span><span style="color:#65737e;">// 참여자 목록, 각자 할일
-</span><span style="color:#b48ead;">let</span><span> members_and_tasks = [
-</span><span>    (&quot;</span><span style="color:#a3be8c;">simnalamburt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-mqtt</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">lifthrasiir</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Chrono 0.3</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">hazealign</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">문서 읽는거 + tokio</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">jeehoonkang</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-memory-model</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">disjukr</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">cson-rust</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">Kroisse</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">webdev</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">nidev</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">binary tree in rust</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">perillamint</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">RustyWorm, 웹서버 짜다 막힌 거 도움</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">kbuild_</span><span>&quot;, unimplemented!()),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">sanxiyn</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">해커톤 끝나고 참석</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">corona10</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">해커톤 끝나고 참석</span><span>&quot;),
-</span><span>    (&quot;</span><span style="color:#a3be8c;">youknowone</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">해커톤 끝나고 참석</span><span>&quot;),
+</span><span style="font-style:italic;color:#969896;">// 참여자 목록, 각자 할일
+</span><span style="font-weight:bold;color:#a71d5d;">let</span><span> members_and_tasks </span><span style="font-weight:bold;color:#a71d5d;">= </span><span>[
+</span><span>    (</span><span style="color:#183691;">&quot;simnalamburt&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-mqtt&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;lifthrasiir&quot;</span><span>, </span><span style="color:#183691;">&quot;Chrono 0.3&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;hazealign&quot;</span><span>, </span><span style="color:#183691;">&quot;문서 읽는거 + tokio&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;jeehoonkang&quot;</span><span>, </span><span style="color:#183691;">&quot;rust-memory-model&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;disjukr&quot;</span><span>, </span><span style="color:#183691;">&quot;cson-rust&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;Kroisse&quot;</span><span>, </span><span style="color:#183691;">&quot;webdev&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;nidev&quot;</span><span>, </span><span style="color:#183691;">&quot;binary tree in rust&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;perillamint&quot;</span><span>, </span><span style="color:#183691;">&quot;RustyWorm, 웹서버 짜다 막힌 거 도움&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;kbuild_&quot;</span><span>, unimplemented!()),
+</span><span>    (</span><span style="color:#183691;">&quot;sanxiyn&quot;</span><span>, </span><span style="color:#183691;">&quot;해커톤 끝나고 참석&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;corona10&quot;</span><span>, </span><span style="color:#183691;">&quot;해커톤 끝나고 참석&quot;</span><span>),
+</span><span>    (</span><span style="color:#183691;">&quot;youknowone&quot;</span><span>, </span><span style="color:#183691;">&quot;해커톤 끝나고 참석&quot;</span><span>),
 </span><span>];
 </span><span>
-</span><span>assert!(members_and_tasks.</span><span style="color:#96b5b4;">iter</span><span>().</span><span style="color:#96b5b4;">all</span><span>(|&amp;(</span><span style="color:#bf616a;">ref member</span><span>, _)| member.</span><span style="color:#96b5b4;">has_laptop</span><span>()));
+</span><span>assert!(members_and_tasks.</span><span style="color:#62a35c;">iter</span><span>().</span><span style="color:#62a35c;">all</span><span>(|</span><span style="font-weight:bold;color:#a71d5d;">&amp;</span><span>(ref member, _)| member.</span><span style="color:#62a35c;">has_laptop</span><span>()));
 </span></code></pre>
 <br>
 <p>모임 장소엔 다과와 음료수, 와이파이, 대형 모니터와 빔프로젝터가 준비되어
