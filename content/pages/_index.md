@@ -25,8 +25,6 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
 
 <p align=center><iframe class=if-mobile src="https://discordapp.com/widget?id=487203989830631435&theme=dark"></iframe></p>
 
-디스코드와 연결된 <span class="custom-tooltip">IRC 채널<irc://irc.ozinger.org/#rust></span>도 운영하고 있습니다.
-
 - [행동 규칙]
 
 ##### 학습하기
