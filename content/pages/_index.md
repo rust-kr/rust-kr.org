@@ -31,6 +31,7 @@ NOTE: 코딩모임이 열린다면 주석처리된 아래의 코드를 되살리
   - [구버전 (2nd edition) 한국어 번역](https://rinthel.github.io/rust-lang-book-ko/) <small>([원문](https://doc.rust-lang.org/1.30.0/book/second-edition/foreword.html))</small>
 - ["Tour of Rust" 한국어 번역](https://tourofrust.com/00_ko.html) <small>([원문](https://tourofrust.com/))</small>
 - ["Rust By Example" 한국어 번역](https://hanbum.gitbooks.io/rustbyexample/content/) <small>([원문](https://doc.rust-lang.org/rust-by-example/))</small>
+- ["Rustlings"](https://rustlings.cool/)
 
 #### 커뮤니티 번역 모음
 <!-- - ["The Edition Guide" 한국어 번역](https://yegeun542.github.io/rust-edition-guide-ko/) <small>([원문](https://doc.rust-lang.org/edition-guide/introduction.html))</small> -->
